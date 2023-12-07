@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-const connect = async() => {
+export const connect = async() => {
     //trying to connect with mongdb atlas 
     try {
         await mongoose.connect(process.env.MONGODB_URI!) 
