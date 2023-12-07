@@ -16,6 +16,9 @@ export async function POST(req:NextRequest){
         if(check){
             return NextResponse.json({message:'Email already exists'}, {status:400})
         }
+        if(data.password.length<6){
+            return NextResponse.json({message:'Password must be at least 6 characters'}, {status:400})
+        }
         const salt = await bcrypt.genSalt(10)
         const hash = await bcrypt.hash(data.password,salt)
         const user = await User.create({...data,password:hash})
