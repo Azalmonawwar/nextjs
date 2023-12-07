@@ -10,11 +10,11 @@ export async function POST(request:NextRequest){
         const {email,password} = await request.json();
         const user = await User.findOne({email});
         if(!user){
-            return NextResponse.json({message:"User not found"});
+            return NextResponse.json({error:"User not found"},{status:202});
         }
         const isMatch = await bcrypt.compare(password,user.password);
         if(!isMatch){
-            return NextResponse.json({message:"Invalid password"});
+            return NextResponse.json({error:"Invalid password"},{status:202});
         }
         const tokenData = {
             id: user._id,
@@ -26,6 +26,9 @@ export async function POST(request:NextRequest){
         const response = NextResponse.json({
             message: "Login successful",
             success: true,
+        },
+        {
+            status:200
         })
         response.cookies.set("token", token, {
             httpOnly: true, 
