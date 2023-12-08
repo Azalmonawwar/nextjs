@@ -10,9 +10,10 @@ export async function GET(request:NextRequest){
                 success: true,
             }
         )
-        response.cookies.set("token", "", 
-        { httpOnly: true, expires: new Date(0) 
-        });
+        // response.cookies.set("token", "", 
+        // { httpOnly: true, expires: new Date(0) 
+        // });
+        response.cookies.delete("token");
         return response;
     } catch (error) {
         return NextResponse.json({message :'Something went wrong'},{status:500});
