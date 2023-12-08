@@ -1,36 +1,69 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Full Stack Authentication with Next.js and MongoDB
+
+## Overview
+
+This repository demonstrates a full-stack authentication system using Next.js for the frontend and MongoDB for the backend. The authentication flow includes user registration, login, and protected routes.
+
+## Technologies Used
+
+- [Next.js](https://nextjs.org/) - A React framework for building server-rendered and statically generated web applications.
+- [MongoDB](https://www.mongodb.com/) - A NoSQL database for scalable and flexible data storage.
+- [Node.js](https://nodejs.org/) - A JavaScript runtime for building scalable network applications.
+
+## Prerequisites
+
+Before you begin, ensure you have the following installed:
+
+- [Node.js and npm](https://nodejs.org/)
+- [MongoDB](https://www.mongodb.com/try/download/community) or MongoDB atlas
 
 ## Getting Started
 
-First, run the development server:
+1. **Download this directory:**
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+  I. Go to this site 'https://download-directory.github.io/'
+  II. Paste this link and press enter 'https://github.com/Azalmonawwar/nextjs/tree/main/nextauthapplication'
+  III. Extract zip in nextauthapplication
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. **Install dependencies:**
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+   ```bash
+   cd nextauthapplication
+   npm install
+   ```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+3. **Set up MongoDB:**
 
-## Learn More
+   - Create a MongoDB database and obtain the connection URI.
+   - Update the `.env` file with your MongoDB URI:
+   - For other environment variables I have provided sample env.
 
-To learn more about Next.js, take a look at the following resources:
+     ```env
+     MONGODB_URI=your_mongodb_uri
+     ```
+     
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+4. **Start the development server:**
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+   ```bash
+   npm run dev
+   ```
 
-## Deploy on Vercel
+   The application should now be running on [http://localhost:3000](http://localhost:3000).
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Features
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- **User Registration:** Users can sign up with a valid email and password.
+- **User Login:** Existing users can log in securely.
+- **Protected Routes:** Certain routes are protected and require authentication.
+- **Authentication Middleware:** Middleware to check the user's authentication status.
+
+## Folder Structure
+
+- `pages/`: Contains Next.js pages.
+- `utils/`: Utility functions and helper files.
+- `/src/app/api/`: Backend API routes.
+
+## Contributing
+
+Feel free to contribute to this project by opening issues or submitting pull requests.
