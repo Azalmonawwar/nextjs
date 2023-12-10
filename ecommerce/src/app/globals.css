@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .flex-center {
+    @apply flex items-center;
+  }
+  .btn-sm {
+    @apply px-2 py-1 bg-pink-400 rounded-md hover:text-black hover:bg-pink-300 text-white text-sm flex items-center justify-center;
+  }
+}
