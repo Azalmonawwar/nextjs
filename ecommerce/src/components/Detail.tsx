@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import React from 'react'
-import Wrapper from './Wrapper';
 
 const product: Product =
 {
@@ -27,17 +26,15 @@ type Product = {
     desc: string;
 }
 
-const Details = () => {
+const Detail = () => {
     return (
 
-        <Wrapper>
-            <div className='overflow-hidden flex flex-col  h-screen'>
+        <section>
 
-            </div>
-        </Wrapper >
+        </section>
 
     )
 
 }
 
-export default Details
+export default Detail

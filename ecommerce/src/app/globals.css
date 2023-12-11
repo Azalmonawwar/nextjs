@@ -3,10 +3,20 @@
 @tailwind utilities;
 
 @layer components {
+  .nav {
+    @apply flex items-center justify-between  container mx-auto h-[60px] md:h-[80px] p-5;
+  }
   .flex-center {
     @apply flex items-center;
   }
   .btn-sm {
-    @apply px-2 py-1 bg-pink-400 rounded-md hover:text-black hover:bg-pink-300 text-white text-sm flex items-center justify-center;
+    @apply px-2 py-1 bg-blue-400 rounded-md hover:text-black hover:bg-blue-300 text-white text-sm flex items-center justify-center;
   }
+  .icons {
+    @apply transition hover:cursor-pointer hover:text-blue-300 flex flex-col items-center justify-center text-xs font-bold;
+  }
+}
+
+.product-desc {
+  max-width: 25ch;
 }
