@@ -4,7 +4,7 @@
 
 @layer components {
   .nav {
-    @apply flex items-center justify-between  container mx-auto h-[60px] md:h-[80px] p-5;
+    @apply flex items-center justify-between   h-[60px] md:h-[80px] p-4;
   }
   .flex-center {
     @apply flex items-center;
@@ -22,4 +22,24 @@
 
 .product-desc {
   max-width: 25ch;
+}
+
+.card-container {
+  position: relative;
+}
+
+.card-container:hover .overlay {
+  opacity: 0.9;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.7);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
 }

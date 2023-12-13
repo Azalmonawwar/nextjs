@@ -10,9 +10,9 @@ const Navbar = () => {
         setIsOpen(!isOpen)
     }
     return (
-        <header className='w-full shadow-[0_8px_30px_rgb(0,0,0,0.12)]' >
+        <header className='container mx-auto' >
 
-            <nav className='nav'>
+            <nav className='nav border-[2px] border-gray-200 m-2'>
                 {/* Desktop nav */}
 
                 <div className='md:flex hidden'>
