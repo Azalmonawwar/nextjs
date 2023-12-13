@@ -34,14 +34,16 @@ const Navbar = () => {
                     </div>
                     <div className='flex-center gap-4'>
 
-                        <div className='icons'>
+
+                        <Link href={'/cart'} className='icons'>
                             <Image src={'/cart.png'} width={20} height={20} alt='cart' />
                             <p >Cart</p>
-                        </div>
-                        <div className='icons'>
+                        </Link>
+
+                        <Link href={'/profile'} className='icons'>
                             <Image src={'/user.png'} width={20} height={20} alt='user' />
                             <p>Profile</p>
-                        </div>
+                        </Link>
                     </div>
                 </div>
 
@@ -53,8 +55,8 @@ const Navbar = () => {
                 </div>
                 <div className='flex-center gap-4 md:hidden'>
                     <Image src={'/search1.png'} width={20} height={20} alt={'user'} />
-                    <Image src={'/heart.png'} width={20} height={20} alt={'user'} />
-                    <Image src={'/cart.png'} width={20} height={20} alt={'user'} />
+                    <Link href={'/profile'}><Image src={'/user.png'} width={20} height={20} alt={'user'} /></Link>
+                    <Link href={'/cart'}><Image src={'/cart.png'} width={20} height={20} alt={'cart'} /></Link>
                 </div>
                 {/* sidemenu */}
                 {
