@@ -27,7 +27,7 @@ const CarouselImg = () => {
 
                     </div>
                     <div>
-                        <Image src="/boy.jpg" alt='boy' height={400} width={900} />
+                        <Image src="/girl.jpg" alt='girl' height={400} width={800} />
 
 
                     </div>
