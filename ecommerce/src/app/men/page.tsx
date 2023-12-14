@@ -1,8 +1,11 @@
+import Wrapper from '@/components/Wrapper'
 import React from 'react'
 
 const Men = () => {
     return (
-        <div>Men</div>
+        <Wrapper>
+            hellow
+        </Wrapper>
     )
 }
 

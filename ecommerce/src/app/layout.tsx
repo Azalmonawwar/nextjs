@@ -1,10 +1,11 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+
+import { Poppins } from 'next/font/google'
 import './globals.css'
 import Navbar from '@/components/Navbar'
 import Footer from '../components/Footer'
-
-const inter = Inter({ subsets: ['latin'] })
+import NextTopLoader from 'nextjs-toploader';
+const poppins = Poppins({ weight: ['200', '300', '400', '500', '600', '700'], subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'Lyntra',
@@ -18,7 +19,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+
+
+
+
+      <body className={poppins.className}>
+        <NextTopLoader
+          color='#000000' />
         <Navbar />
         {children}
         <Footer />

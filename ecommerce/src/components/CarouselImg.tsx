@@ -28,8 +28,6 @@ const CarouselImg = () => {
                     </div>
                     <div>
                         <Image src="/girl.jpg" alt='girl' height={400} width={800} />
-
-
                     </div>
 
                 </Carousel>

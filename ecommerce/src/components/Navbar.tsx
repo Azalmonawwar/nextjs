@@ -2,7 +2,13 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
-const menuItems = ['home', 'men', 'women', 'kids', 'accessories', 'sale']
+
+//fonts 
+import { Roboto_Condensed } from 'next/font/google'
+const robotoc = Roboto_Condensed({ weight: ['700'], subsets: ['latin'] })
+
+
+const menuItems = ['home', 'men', 'women', 'kids', 'accessories',]
 const Navbar = () => {
     const [isOpen, setIsOpen] = React.useState(false)
     const isLogged = true
@@ -10,18 +16,18 @@ const Navbar = () => {
         setIsOpen(!isOpen)
     }
     return (
-        <header className='container mx-auto' >
+        <header className='w-full fixed top-0 left-0  z-[100] bg-white shadow-[0_8px_30px_rgb(0,0,0,0.12)]' >
 
-            <nav className='nav border-[2px] border-gray-200 m-2'>
+            <nav className='nav container md:mx-auto border-[2px] border-gray-200 my-2 '>
                 {/* Desktop nav */}
 
                 <div className='md:flex hidden'>
-                    <h1 className='font-bold text-xl mr-5'> Lyntra</h1>
-                    <ul className='flex items-center gap-5 font-semibold'>
+                    <h1 className={`font-bold text-xl mr-5 ${robotoc.className} uppercase`} ><Link href={'/'} >Lyntra</Link></h1>
+                    <ul className='flex items-center gap-5 font-semibold '>
                         {
                             menuItems.map((item, index) => {
                                 return (
-                                    <li key={index} className='capitalize text-sm hover:text-blue-300 transition'><Link href={`/${item}`}>{item}</Link></li>
+                                    <li key={index} className='capitalize text-sm hover:text-blue-300 transition font-semibold'><Link href={`/${item}`}>{item}</Link></li>
                                 )
                             })
                         }
@@ -50,8 +56,8 @@ const Navbar = () => {
 
                 {/* //mobile nav */}
                 <div className='flex-center gap-4 md:hidden'>
-                    <Image src={'/hamburger.png'} width={24} height={24} className={'w-[20%] md:hidden block z-20'} alt={'menu'} onClick={toggleMenu} />
-                    <h1 className='text-sm md:text-xl font-bold'>Lyntra</h1>
+                    <Image src={'/hamburger.png'} width={24} height={24} className={'w-[20%] md:hidden block z-50'} alt={'menu'} onClick={toggleMenu} />
+                    <h1 className={`text-xl font-bold ${robotoc.className} uppercase`}><Link href={'/'}>Lyntra</Link></h1>
                 </div>
                 <div className='flex-center gap-4 md:hidden'>
                     <Image src={'/search1.png'} width={20} height={20} alt={'user'} />
@@ -61,7 +67,7 @@ const Navbar = () => {
                 {/* sidemenu */}
                 {
                     isOpen &&
-                    <div className='absolute md:hidden top-0 left-0 py-24 px-5 w-[70%] bg-gray-100 h-screen'>
+                    <div className='z-40 absolute md:hidden top-0 left-0 py-24 px-5 w-[70%] bg-gray-100 h-screen'>
                         {
                             isLogged &&
                             <div className='flex  gap-4 items-center mb-6 '>
@@ -76,9 +82,7 @@ const Navbar = () => {
                             {
                                 menuItems.map((item, index) => {
                                     return (
-
                                         <li key={index} className='flex items-center justify-between py-3 capitalize'><Link href={`/${item}`}>{item}</Link> <Image src={'/next.png'} width={12} height={12} alt='next' /> </li>
-
                                     )
                                 }
                                 )

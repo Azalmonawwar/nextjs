@@ -6,17 +6,17 @@ import Card from './Card'
 
 const data = [
     {
-        href: '/details',
+        href: '/details/purse',
         src: '/purse.png',
         title: `Designer Purse`,
     },
     {
-        href: '/details',
+        href: '/details/watch',
         src: '/watch.png',
         title: `Designer Watch`,
     },
     {
-        href: '/details',
+        href: '/details/shoes',
         src: '/shoes.png',
         title: `Designer Shoes`,
     },

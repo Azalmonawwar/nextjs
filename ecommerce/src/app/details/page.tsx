@@ -1,9 +1,12 @@
 import Detail from '@/components/Detail'
+import Wrapper from '@/components/Wrapper'
 import React from 'react'
 
 const Details = () => {
     return (
-        <Detail />
+        <Wrapper>
+            hellow
+        </Wrapper>
     )
 }
 

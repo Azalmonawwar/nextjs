@@ -2,7 +2,7 @@ import React from 'react'
 
 const Wrapper = ({ children }: { children: React.ReactNode }) => {
     return (
-        <section className="container px-5 mx-auto">
+        <section className="container p-4 mt-[80px] mx-auto ">
             {children}
         </section>
     )

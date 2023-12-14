@@ -13,6 +13,11 @@ const config: Config = {
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
+      fontFamily: {
+        'primary': ['Poppins', 'sans-serif'],
+        'secondary': ['"Roboto Condense"', 'serif'],
+        'tertiary': ['"Rubik"', 'serif'], // Ensure fonts with spaces have " " surrounding it.
+      },
     },
   },
   plugins: [],

@@ -10,7 +10,7 @@
     @apply flex items-center;
   }
   .btn-sm {
-    @apply px-2 py-1 bg-blue-400 rounded-md hover:text-black hover:bg-blue-300 text-white text-sm flex items-center justify-center;
+    @apply px-2 py-1 bg-black rounded-md hover:text-black  text-white text-sm flex items-center justify-center;
   }
   .icons {
     @apply transition hover:cursor-pointer hover:text-blue-300 flex flex-col items-center justify-center text-xs font-bold;
@@ -21,7 +21,7 @@
 }
 
 .product-desc {
-  max-width: 25ch;
+  max-width: 30ch;
 }
 
 .card-container {

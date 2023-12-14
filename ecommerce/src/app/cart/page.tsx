@@ -1,8 +1,11 @@
+import Wrapper from '@/components/Wrapper'
 import React from 'react'
 
 const Cart = () => {
     return (
-        <div>Cart</div>
+        <Wrapper>
+            hellow
+        </Wrapper>
     )
 }
 

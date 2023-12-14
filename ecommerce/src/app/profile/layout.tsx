@@ -1,3 +1,4 @@
+import Wrapper from '@/components/Wrapper'
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -13,7 +14,7 @@ export default function RootLayout({
     children: React.ReactNode
 }) {
     return (
-        <section className="wrapper">
+        <Wrapper >
             <div className='flex '>
                 <div className='flex flex-col'>
                     <h3 className='mb-10 p-3 text-xl font-bold tracking-wider'>My Profile</h3>
@@ -44,6 +45,6 @@ export default function RootLayout({
                 {children}
             </div>
 
-        </section>
+        </Wrapper>
     )
 }

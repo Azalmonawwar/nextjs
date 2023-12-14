@@ -1,8 +1,11 @@
+import Wrapper from '@/components/Wrapper'
 import React from 'react'
 
 const Kids = () => {
     return (
-        <div>Kids</div>
+        <Wrapper>
+            hellow
+        </Wrapper>
     )
 }
 
