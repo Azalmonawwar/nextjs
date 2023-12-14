@@ -1,5 +1,4 @@
 import React from 'react'
-import Card from './Card'
 import Product from './Product'
 import Link from 'next/link'
 import Image from 'next/image'
@@ -116,7 +115,7 @@ const TrendingItems = () => {
                                 <h4 className={`${rubik.className} md:text-2xl text-base font-semibold mb-2`}>
                                     MEN'S T-SHIRT
                                 </h4>
-                                <Link href={'/details/t-shirt'} className='md:px-4 md:py-2 px-2 py-1 text-sm md:text-base bg-black text-white hover:bg-gray-900 '>SHOP NOW</Link>
+                                <Link href={'/product/t-shirt'} className='md:px-4 md:py-2 px-2 py-1 text-sm md:text-base bg-black text-white hover:bg-gray-900 '>SHOP NOW</Link>
                             </div>
                             <div className='w-1/2'>
                                 <Image src={'/shirt.png'} alt='men' width={250} height={300} />
@@ -127,7 +126,7 @@ const TrendingItems = () => {
                                 <h4 className={`${rubik.className} md:text-2xl text-base font-semibold mb-2`}>
                                     MEN'S HOODIE
                                 </h4>
-                                <Link href={'/details/hoodie'} className='md:px-4 md:py-2 px-2 py-1 text-sm md:text-base bg-black text-white hover:bg-gray-900 '>SHOP NOW</Link>
+                                <Link href={'/product/hoodie'} className='md:px-4 md:py-2 px-2 py-1 text-sm md:text-base bg-black text-white hover:bg-gray-900 '>SHOP NOW</Link>
                             </div>
                             <div className='w-1/2'>
                                 <Image src={'/hoodie.png'} alt='men' width={250} height={300} />

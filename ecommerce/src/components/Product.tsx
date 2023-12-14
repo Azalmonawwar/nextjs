@@ -21,14 +21,6 @@ const Product = ({ id, href, imageAlt, imageSrc, name, price, desc }: Product) =
                     height={200}
                     src={imageSrc}
                     alt={imageAlt}
-                    layout="responsive"
-                    objectFit="cover"
-                    objectPosition="center"
-                    placeholder="blur"
-                    blurDataURL={imageSrc}
-                    priority={true}
-                    quality={100}
-                    loading="eager"
                     className="h-full w-full object-cover object-center group-hover:opacity-75"
                 />
 

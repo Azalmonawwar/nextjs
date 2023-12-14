@@ -2,7 +2,7 @@ import Detail from '@/components/Detail'
 import Wrapper from '@/components/Wrapper'
 import React from 'react'
 
-const Details = () => {
+const Product = () => {
     return (
         <Wrapper>
             hellow
@@ -10,4 +10,4 @@ const Details = () => {
     )
 }
 
-export default Details
+export default Product

@@ -14,18 +14,18 @@ const special: Special = [
     {
         title: 'Shirts',
         image: '/men-model.png',
-        link: '/details'
+        link: '/product'
 
     },
     {
         title: "T-Shirts",
         image: '/girl-model.png',
-        link: '/details'
+        link: '/product'
     },
     {
         title: "Hoodie",
         image: '/kids-model.png',
-        link: '/details'
+        link: '/product'
     }
 ]
 const SpecialProducts = () => {
