@@ -19,6 +19,9 @@
     @apply container mx-auto p-5;
   }
 }
+html {
+  overflow-x: hidden;
+}
 
 .product-desc {
   max-width: 30ch;
@@ -42,4 +45,15 @@
   background-color: rgba(0, 0, 0, 0.7);
   opacity: 0;
   transition: opacity 0.3s ease-in-out;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Hide arrows for number input in Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
 }

@@ -1,16 +1,18 @@
+'use client'
 import Image from 'next/image';
 import React from 'react'
-
+import { useForm, SubmitHandler } from "react-hook-form"
 const product: Product =
 {
     id: 1,
-    name: 'Earthen Bottle',
+    name: 'Girl Top',
     price: '$48',
-    imageSrc: 'https://tailwindui.com/img/ecommerce-images/category-page-04-image-card-01.jpg',
-    imageAlt: 'Tall slender porcelain bottle with natural clay textured body and cork stopper.',
+    imageSrc: '/girl-model.png',
+    imageAlt: 'top',
     rating: 4,
     category: 'household',
-    desc: 'Made from high-quality, locally-sourced clay, our Earthen Pot boasts durability and a natural aesthetic that adds warmth to any home. Its rustic charm and earthy tones make it a perfect addition to both traditional and contemporary spaces, creating a harmonious balance between old-world charm and modern style.'
+    desc: 'Introducing the epitome of style and sophistication  our Girl Top, a must-have addition to any fashion-forward wardrobe. Crafted with meticulous attention to detail, this top seamlessly blends comfort with contemporary chic.',
+    size: ['S', 'M', 'L', 'XL', 'XXL'],
 
 }
 
@@ -24,38 +26,74 @@ type Product = {
     rating: number;
     desc: string;
     category: string;
+    size: string[];
+}
+type Inputs = {
+    pincode: number;
 }
 
-const Detail = () => {
+const Detail = ({ title }: any) => {
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+    } = useForm<Inputs>()
+    const checkAvailabitly = async () => {
+        // console.log('checking')
+    }
+    const onSubmit: SubmitHandler<Inputs> = async (data) => {
+        await checkAvailabitly()
+        console.log(data);
+    }
     return (
 
-        <section className='container mx-auto p-5'>
-            <div className='flex flex-col md:flex-row  '>
-                <div className='md:w-1/2 w-full'>
-                    <Image src={product.imageSrc} alt={product.imageAlt} width={500} height={500} />
+        <div className='container mx-auto p-4 m-2'>
+            <div className='flex flex-col md:flex-row gap-5'>
+                <div className='md:w-[40%] md:h-[500px] h-auto w-[90] flex items-center justify-center mx-auto bg-gray-300 '>
+                    <Image src={product.imageSrc} alt={product.imageAlt} width={400} height={400} />
                 </div>
-                <div className='md:w-1/2 w-full px-7 flex flex-col '>
-                    <h3 className='md:text-3xl text-xl  font-bold text-gray-900 tracking-lighter  '>
+                <div className='md:w-[40%]  w-full flex flex-col  mx-auto  '>
+                    <h3 className='text-2xl uppercase font-bold'>
                         {product.name}
                     </h3>
-                    <p className='text-gray-400 capitalize flex my-2 '>
-                        {product.category} |&nbsp; <span className={` text-white text-sm px-2 rounded-md  flex items-center justify-center ${product.rating > 3 ? 'bg-green-900' : 'bg-orange-700'}`}> {product.rating}.0 ★</span>
-                    </p>
-                    <p className='text-xl font-semibold md:my-3 my-2'>
-                        {product.price}.00
-                    </p>
+                    <p className='text-gray-400 mt-2 md:text-base text-sm'>{product.desc}</p>
+                    <p className='mt-4 text-2xl font-semibold'>{product.price}</p>
+                    <span className='text-green-500 font-semibold md:text-base text-sm' >inclusive of all taxes</span>
+                    <hr className='mt-4' />
+                    {product?.size &&
+                        <div className='flex md:flex-col justify-between md:justify-start mt-4'>
+                            <p className='md:text-xl text-base mb-2'>SELECT SIZE</p>
+                            <select className='md:w-[20%] bg-gray-200 outline-none border-[1px] border-gray-100 focus:bg-white rounded-lg md:p-2 px-2 py-1'>
+                                {
+                                    product?.size.map((e) => {
+                                        return <option>{e}</option>
+                                    })
+                                }
+                            </select>
+                        </div>
+                    }
 
-                    <p className='flex flex-col text-sm text-gray-500 leading-6 md:leading-8 md:w-[80%] my-2 md:my-3'>
-                        <span className='text-xl text-gray-800 font-semibold my-3' >Description</span>
-                        {product.desc}
-                    </p>
-                    <div className='flex gap-4 mt-8 text-sm md:text-base'>
-                        <button className='px-2 w-1/2 py-2 md:px-4 md:py-2 bg-gray-800 hover:bg-gray-500  text-white rounded-md'>Add to Cart</button>
-                        <button className='px-2 w-1/2 py-2 md:px-4 md:py-2 bg-blue-700 hover:bg-blue-400 text-white rounded-md'>Buy Now</button>
+                    <button className='bg-black text-white rounded-lg p-2 mt-4'>ADD TO CART</button>
+                    <hr className='mt-5' />
+                    <div className='flex flex-col '>
+                        <h3 className='text-base font-bold mt-4 tracking-tight'>DELIVERY OPTIONS</h3>
+                        <div className='flex flex-col gap-1 justify-between '>
+                            <div className='flex md:flex-row items-center gap-2'>
+                                <input type="number" id="pincode" {...register("pincode")} placeholder='Enter Pincode' className='my-4 py-2 px-4 w-[75%] md:w-full outline-none border-[1px] border-gray-100 bg-gray-200 focus:bg-white transition rounded-md' />
+                                <button onClick={handleSubmit(onSubmit)} className='md:mr-auto bg-black text-white py-2 px-4 rounded-md  '>Check</button>
+                            </div>
+                            <p className='md:text-sm text-xs text-gray-400'>Please enter PIN code to check delivery time & Pay on Delivery Availability</p>
+                        </div>
+                        <div className='md:text-sm text-xs text-gray-500 mt-4 flex flex-col gap-2'>
+                            <p>100% Original Products</p>
+                            <p>Pay on delivery might be available</p>
+                            <p>Easy 14 days returns and exchanges</p>
+                            <p>Try & Buy might be available</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
 
     )
 

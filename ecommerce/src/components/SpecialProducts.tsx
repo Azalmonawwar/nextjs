@@ -37,6 +37,25 @@ const SpecialProducts = () => {
                         <h3 className={`${robotoc.className} font-bold text-3xl`}> SPECIAL PRODUCTS</h3>
                         <p className='text-sm text-gray-400'>Elevate your style with our Special types cloth &#9472; a perfect fusion of comfort and fashion, designed to make every moment special.</p>
                     </div>
+                    <div className='flex flex-col md:flex-row gap-4 mb-4'>
+                        {
+                            special.map((item, index) => {
+                                return (
+                                    <div key={index} className="card-container relative overflow-hidden bg-gray-300 md:w-[33%] flex items-center justify-center w-full">
+                                        <Image src={`${item.image}`} alt={item.image} height={400} width={300} />
+                                        <div className="overlay absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300">
+                                            <div className="text-white text-center">
+                                                <h2 className="text-2xl font-thin mb-2 uppercase tracking-[5px]">{item.title}</h2>
+                                                <Link href={`${item.link}/${item.title.toLowerCase()}`} className="bg-black text-white px-4 py-2 rounded hover:bg-gray-900">
+                                                    Shop Now
+                                                </Link>
+                                            </div>
+                                        </div>
+                                    </div>
+                                )
+                            })
+                        }
+                    </div>
                     <div className='flex flex-col md:flex-row gap-4'>
                         {
                             special.map((item, index) => {
