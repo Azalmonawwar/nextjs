@@ -17,7 +17,7 @@ const Cart = () => {
                     <div className="rounded-lg md:w-2/3 h-auto">
                         {length > 0 ?
                             Object.keys(items).map((product) => (
-                                <CartItem keys={product} product={items[product]} />
+                                <CartItem key={product} product={items[product]} />
                             )) :
                             <p className="text-center text-2xl">No product in cart</p>
                         }

@@ -242,14 +242,14 @@ const TrendingItems = () => {
                     </div>
                     <div className='grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8 '>
                         {products.map((product) => (
-                            <Product product={product} />
+                            <Product key={product.product_id} product={product} />
                         ))}
                     </div>
                     <div className='flex md:flex-row flex-col gap-4 mt-5'>
                         <div className='bg-gray-200 md:w-1/2 flex  '>
                             <div className='w-1/2 flex items-center justify-center flex-col'>
                                 <h4 className={`${rubik.className} md:text-2xl text-base font-semibold mb-2`}>
-                                    MEN'S T-SHIRT
+                                    MENS T-SHIRT
                                 </h4>
                                 <Link href={'/product/t-shirt'} className='md:px-4 md:py-2 px-2 py-1 text-sm md:text-base bg-black text-white hover:bg-gray-900 '>SHOP NOW</Link>
                             </div>
@@ -260,7 +260,7 @@ const TrendingItems = () => {
                         <div className='bg-gray-200 md:w-1/2 flex  '>
                             <div className='w-1/2 flex items-center justify-center flex-col'>
                                 <h4 className={`${rubik.className} md:text-2xl text-base font-semibold mb-2`}>
-                                    MEN'S HOODIE
+                                    MENS HOODIE
                                 </h4>
                                 <Link href={'/product/hoodie'} className='md:px-4 md:py-2 px-2 py-1 text-sm md:text-base bg-black text-white hover:bg-gray-900 '>SHOP NOW</Link>
                             </div>

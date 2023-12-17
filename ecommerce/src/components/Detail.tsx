@@ -15,6 +15,14 @@ type Inputs = {
 }
 
 const Detail = ({ id }: any) => {
+    //handling forms
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+    } = useForm<Inputs>();
+
+
     const dispatch = useDispatch();
     const product: any = products.find((e: any) => e.product_id === id);
 
@@ -27,12 +35,8 @@ const Detail = ({ id }: any) => {
         product.price_range = [300]
     }
 
-    //handling forms
-    const {
-        register,
-        handleSubmit,
-        formState: { errors },
-    } = useForm<Inputs>()
+
+
 
     //check if pincode is available
     const checkAvailabitly = async () => {
