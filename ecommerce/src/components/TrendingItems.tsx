@@ -12,8 +12,8 @@ const products = [
     {
         product_id: "14480802512949149173",
         product_id_v2: "14480802512949149173:5616886457579175377",
-        product_title: "Fossil Outlet Men's Privateer Chronograph Leather Watch - Brown Holiday, Christmas and Hanukkah Gifts",
-        product_description: "This 45mm Privateer Features A Black Sunray Dial, Chronograph Movement And Brown Leather Strap. 45mm Case, 24mm Band Width, Mineral Crystal, Quartz Movement With Chronograph Analog Display, Imported. Round Stainless Steel Case, With A Black Dial. Brown, L",
+        product_title: "Fossil Outlet Mens Privateer Chronograph Leather Watch  Brown Holiday Christmas and Hanukkah Gifts",
+        product_description: "This 45mm Privateer Features A Black Sunray Dial Chronograph Movement And Brown Leather Strap. 45mm Case 24mm Band Width, Mineral Crystal Quartz Movement With Chronograph Analog Display Imported. Round Stainless Steel Case With A Black Dial. Brown, L",
         product_photos: [
             "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcSaFYPjcKISB4_mq0M5AXyvcZ-AHJoJPTKMNiXS_ny7uNNZSvmblTq5xfiVG1a17M5APTR58JXRU29AkZik_YB_GMXfz5xbuw&usqp=CAE"
         ],
@@ -39,8 +39,8 @@ const products = [
     {
         product_id: "14480802512949149173",
         product_id_v2: "14480802512949149173:5616886457579175377",
-        product_title: "Fossil Outlet Men's Privateer Chronograph Leather Watch - Brown Holiday, Christmas and Hanukkah Gifts",
-        product_description: "This 45mm Privateer Features A Black Sunray Dial, Chronograph Movement And Brown Leather Strap. 45mm Case, 24mm Band Width, Mineral Crystal, Quartz Movement With Chronograph Analog Display, Imported. Round Stainless Steel Case, With A Black Dial. Brown, L",
+        product_title: "Fossil Outlet Mens Privateer Chronograph Leather Watch  Brown Holiday Christmas and Hanukkah Gifts",
+        product_description: "This 45mm Privateer Features A Black Sunray Dial Chronograph Movement And Brown Leather Strap. 45mm Case 24mm Band Width, Mineral Crystal Quartz Movement With Chronograph Analog Display Imported. Round Stainless Steel Case With A Black Dial. Brown, L",
         product_photos: [
             "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcSaFYPjcKISB4_mq0M5AXyvcZ-AHJoJPTKMNiXS_ny7uNNZSvmblTq5xfiVG1a17M5APTR58JXRU29AkZik_YB_GMXfz5xbuw&usqp=CAE"
         ],
@@ -66,8 +66,8 @@ const products = [
     {
         product_id: "14480802512949149173",
         product_id_v2: "14480802512949149173:5616886457579175377",
-        product_title: "Fossil Outlet Men's Privateer Chronograph Leather Watch - Brown Holiday, Christmas and Hanukkah Gifts",
-        product_description: "This 45mm Privateer Features A Black Sunray Dial, Chronograph Movement And Brown Leather Strap. 45mm Case, 24mm Band Width, Mineral Crystal, Quartz Movement With Chronograph Analog Display, Imported. Round Stainless Steel Case, With A Black Dial. Brown, L",
+        product_title: "Fossil Outlet Mens Privateer Chronograph Leather Watch  Brown Holiday Christmas and Hanukkah Gifts",
+        product_description: "This 45mm Privateer Features A Black Sunray Dial Chronograph Movement And Brown Leather Strap. 45mm Case 24mm Band Width, Mineral Crystal Quartz Movement With Chronograph Analog Display Imported. Round Stainless Steel Case With A Black Dial. Brown, L",
         product_photos: [
             "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcSaFYPjcKISB4_mq0M5AXyvcZ-AHJoJPTKMNiXS_ny7uNNZSvmblTq5xfiVG1a17M5APTR58JXRU29AkZik_YB_GMXfz5xbuw&usqp=CAE"
         ],
@@ -93,8 +93,8 @@ const products = [
     {
         product_id: "14480802512949149173",
         product_id_v2: "14480802512949149173:5616886457579175377",
-        product_title: "Fossil Outlet Men's Privateer Chronograph Leather Watch - Brown Holiday, Christmas and Hanukkah Gifts",
-        product_description: "This 45mm Privateer Features A Black Sunray Dial, Chronograph Movement And Brown Leather Strap. 45mm Case, 24mm Band Width, Mineral Crystal, Quartz Movement With Chronograph Analog Display, Imported. Round Stainless Steel Case, With A Black Dial. Brown, L",
+        product_title: "Fossil Outlet Mens Privateer Chronograph Leather Watch  Brown Holiday Christmas and Hanukkah Gifts",
+        product_description: "This 45mm Privateer Features A Black Sunray Dial Chronograph Movement And Brown Leather Strap. 45mm Case 24mm Band Width, Mineral Crystal Quartz Movement With Chronograph Analog Display Imported. Round Stainless Steel Case With A Black Dial. Brown, L",
         product_photos: [
             "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcSaFYPjcKISB4_mq0M5AXyvcZ-AHJoJPTKMNiXS_ny7uNNZSvmblTq5xfiVG1a17M5APTR58JXRU29AkZik_YB_GMXfz5xbuw&usqp=CAE"
         ],
@@ -120,8 +120,8 @@ const products = [
     {
         product_id: "14480802512949149173",
         product_id_v2: "14480802512949149173:5616886457579175377",
-        product_title: "Fossil Outlet Men's Privateer Chronograph Leather Watch - Brown Holiday, Christmas and Hanukkah Gifts",
-        product_description: "This 45mm Privateer Features A Black Sunray Dial, Chronograph Movement And Brown Leather Strap. 45mm Case, 24mm Band Width, Mineral Crystal, Quartz Movement With Chronograph Analog Display, Imported. Round Stainless Steel Case, With A Black Dial. Brown, L",
+        product_title: "Fossil Outlet Mens Privateer Chronograph Leather Watch  Brown Holiday Christmas and Hanukkah Gifts",
+        product_description: "This 45mm Privateer Features A Black Sunray Dial Chronograph Movement And Brown Leather Strap. 45mm Case 24mm Band Width, Mineral Crystal Quartz Movement With Chronograph Analog Display Imported. Round Stainless Steel Case With A Black Dial. Brown, L",
         product_photos: [
             "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcSaFYPjcKISB4_mq0M5AXyvcZ-AHJoJPTKMNiXS_ny7uNNZSvmblTq5xfiVG1a17M5APTR58JXRU29AkZik_YB_GMXfz5xbuw&usqp=CAE"
         ],
@@ -147,8 +147,8 @@ const products = [
     {
         product_id: "14480802512949149173",
         product_id_v2: "14480802512949149173:5616886457579175377",
-        product_title: "Fossil Outlet Men's Privateer Chronograph Leather Watch - Brown Holiday, Christmas and Hanukkah Gifts",
-        product_description: "This 45mm Privateer Features A Black Sunray Dial, Chronograph Movement And Brown Leather Strap. 45mm Case, 24mm Band Width, Mineral Crystal, Quartz Movement With Chronograph Analog Display, Imported. Round Stainless Steel Case, With A Black Dial. Brown, L",
+        product_title: "Fossil Outlet Mens Privateer Chronograph Leather Watch  Brown Holiday Christmas and Hanukkah Gifts",
+        product_description: "This 45mm Privateer Features A Black Sunray Dial Chronograph Movement And Brown Leather Strap. 45mm Case 24mm Band Width, Mineral Crystal Quartz Movement With Chronograph Analog Display Imported. Round Stainless Steel Case With A Black Dial. Brown, L",
         product_photos: [
             "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcSaFYPjcKISB4_mq0M5AXyvcZ-AHJoJPTKMNiXS_ny7uNNZSvmblTq5xfiVG1a17M5APTR58JXRU29AkZik_YB_GMXfz5xbuw&usqp=CAE"
         ],
@@ -174,8 +174,8 @@ const products = [
     {
         product_id: "14480802512949149173",
         product_id_v2: "14480802512949149173:5616886457579175377",
-        product_title: "Fossil Outlet Men's Privateer Chronograph Leather Watch - Brown Holiday, Christmas and Hanukkah Gifts",
-        product_description: "This 45mm Privateer Features A Black Sunray Dial, Chronograph Movement And Brown Leather Strap. 45mm Case, 24mm Band Width, Mineral Crystal, Quartz Movement With Chronograph Analog Display, Imported. Round Stainless Steel Case, With A Black Dial. Brown, L",
+        product_title: "Fossil Outlet Mens Privateer Chronograph Leather Watch  Brown Holiday Christmas and Hanukkah Gifts",
+        product_description: "This 45mm Privateer Features A Black Sunray Dial Chronograph Movement And Brown Leather Strap. 45mm Case 24mm Band Width, Mineral Crystal Quartz Movement With Chronograph Analog Display Imported. Round Stainless Steel Case With A Black Dial. Brown, L",
         product_photos: [
             "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcSaFYPjcKISB4_mq0M5AXyvcZ-AHJoJPTKMNiXS_ny7uNNZSvmblTq5xfiVG1a17M5APTR58JXRU29AkZik_YB_GMXfz5xbuw&usqp=CAE"
         ],
@@ -201,8 +201,8 @@ const products = [
     {
         product_id: "14480802512949149173",
         product_id_v2: "14480802512949149173:5616886457579175377",
-        product_title: "Fossil Outlet Men's Privateer Chronograph Leather Watch - Brown Holiday, Christmas and Hanukkah Gifts",
-        product_description: "This 45mm Privateer Features A Black Sunray Dial, Chronograph Movement And Brown Leather Strap. 45mm Case, 24mm Band Width, Mineral Crystal, Quartz Movement With Chronograph Analog Display, Imported. Round Stainless Steel Case, With A Black Dial. Brown, L",
+        product_title: "Fossil Outlet Mens Privateer Chronograph Leather Watch  Brown Holiday Christmas and Hanukkah Gifts",
+        product_description: "This 45mm Privateer Features A Black Sunray Dial Chronograph Movement And Brown Leather Strap. 45mm Case 24mm Band Width, Mineral Crystal Quartz Movement With Chronograph Analog Display Imported. Round Stainless Steel Case With A Black Dial. Brown, L",
         product_photos: [
             "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcSaFYPjcKISB4_mq0M5AXyvcZ-AHJoJPTKMNiXS_ny7uNNZSvmblTq5xfiVG1a17M5APTR58JXRU29AkZik_YB_GMXfz5xbuw&usqp=CAE"
         ],
