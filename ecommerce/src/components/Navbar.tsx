@@ -1,8 +1,8 @@
 'use client'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useSelector } from 'react-redux'
 import React from 'react'
-
 //fonts 
 import { Roboto_Condensed } from 'next/font/google'
 const robotoc = Roboto_Condensed({ weight: ['700'], subsets: ['latin'] })
@@ -10,6 +10,9 @@ const robotoc = Roboto_Condensed({ weight: ['700'], subsets: ['latin'] })
 
 const menuItems = ['home', 'men', 'women', 'kids', 'accessories',]
 const Navbar = () => {
+    const cart = useSelector((state: any) => state.cart)
+    const { items } = cart;
+    const length = Object.keys(items).length
     const [isOpen, setIsOpen] = React.useState(false)
     const isLogged = true
     const toggleMenu = () => {
@@ -41,8 +44,9 @@ const Navbar = () => {
                     <div className='flex-center gap-4'>
 
 
-                        <Link href={'/cart'} className='icons'>
+                        <Link href={'/cart'} className='icons relative'>
                             <Image src={'/cart.png'} width={20} height={20} alt='cart' />
+                            <div className='absolute top-0 right-0 bg-red-500 text-white text-[10px] px-1 rounded-full'>{length}</div>
                             <p >Cart</p>
                         </Link>
 

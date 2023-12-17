@@ -10,83 +10,219 @@ const rubik = Rubik({ weight: ['400', '500', '700'], subsets: ['latin'] })
 //will delete later 
 const products = [
     {
-        id: 1,
-        name: 'Earthen Bottle',
-        href: '#',
-        price: '₹299',
-        imageSrc: '/purse.png',
-        imageAlt: 'Tall slender porcelain bottle with natural clay textured body and cork stopper.',
-        desc: 'Tall slender porcelain bottle with natural clay textured body and cork stopper.',
+        product_id: "14480802512949149173",
+        product_id_v2: "14480802512949149173:5616886457579175377",
+        product_title: "Fossil Outlet Men's Privateer Chronograph Leather Watch - Brown Holiday, Christmas and Hanukkah Gifts",
+        product_description: "This 45mm Privateer Features A Black Sunray Dial, Chronograph Movement And Brown Leather Strap. 45mm Case, 24mm Band Width, Mineral Crystal, Quartz Movement With Chronograph Analog Display, Imported. Round Stainless Steel Case, With A Black Dial. Brown, L",
+        product_photos: [
+            "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcSaFYPjcKISB4_mq0M5AXyvcZ-AHJoJPTKMNiXS_ny7uNNZSvmblTq5xfiVG1a17M5APTR58JXRU29AkZik_YB_GMXfz5xbuw&usqp=CAE"
+        ],
+        product_attributes: {
+            Features: "Chronograph, Water Resistant",
+            Watch_Movement: "Quartz",
+            Style: "Wrist",
+            Display: "Analog"
+        },
+        product_rating: null,
+
+
+
+
+        product_num_reviews: 0,
+        product_num_offers: "4",
+        price_range: [
+            "$53.00",
+            "$53.00"
+        ],
 
     },
     {
-        id: 1,
-        name: 'Earthen Bottle',
-        href: '#',
-        price: '₹299',
-        imageSrc: '/purse.png',
-        imageAlt: 'Tall slender porcelain bottle with natural clay textured body and cork stopper.',
-        desc: 'Tall slender porcelain bottle with natural clay textured body and cork stopper.',
+        product_id: "14480802512949149173",
+        product_id_v2: "14480802512949149173:5616886457579175377",
+        product_title: "Fossil Outlet Men's Privateer Chronograph Leather Watch - Brown Holiday, Christmas and Hanukkah Gifts",
+        product_description: "This 45mm Privateer Features A Black Sunray Dial, Chronograph Movement And Brown Leather Strap. 45mm Case, 24mm Band Width, Mineral Crystal, Quartz Movement With Chronograph Analog Display, Imported. Round Stainless Steel Case, With A Black Dial. Brown, L",
+        product_photos: [
+            "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcSaFYPjcKISB4_mq0M5AXyvcZ-AHJoJPTKMNiXS_ny7uNNZSvmblTq5xfiVG1a17M5APTR58JXRU29AkZik_YB_GMXfz5xbuw&usqp=CAE"
+        ],
+        product_attributes: {
+            Features: "Chronograph, Water Resistant",
+            Watch_Movement: "Quartz",
+            Style: "Wrist",
+            Display: "Analog"
+        },
+        product_rating: null,
+
+
+
+
+        product_num_reviews: 0,
+        product_num_offers: "4",
+        price_range: [
+            "$53.00",
+            "$53.00"
+        ],
 
     },
     {
-        id: 1,
-        name: 'Earthen Bottle',
-        href: '#',
-        price: '₹299',
-        imageSrc: '/purse.png',
-        imageAlt: 'Tall slender porcelain bottle with natural clay textured body and cork stopper.',
-        desc: 'Tall slender porcelain bottle with natural clay textured body and cork stopper.',
+        product_id: "14480802512949149173",
+        product_id_v2: "14480802512949149173:5616886457579175377",
+        product_title: "Fossil Outlet Men's Privateer Chronograph Leather Watch - Brown Holiday, Christmas and Hanukkah Gifts",
+        product_description: "This 45mm Privateer Features A Black Sunray Dial, Chronograph Movement And Brown Leather Strap. 45mm Case, 24mm Band Width, Mineral Crystal, Quartz Movement With Chronograph Analog Display, Imported. Round Stainless Steel Case, With A Black Dial. Brown, L",
+        product_photos: [
+            "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcSaFYPjcKISB4_mq0M5AXyvcZ-AHJoJPTKMNiXS_ny7uNNZSvmblTq5xfiVG1a17M5APTR58JXRU29AkZik_YB_GMXfz5xbuw&usqp=CAE"
+        ],
+        product_attributes: {
+            Features: "Chronograph, Water Resistant",
+            Watch_Movement: "Quartz",
+            Style: "Wrist",
+            Display: "Analog"
+        },
+        product_rating: null,
+
+
+
+
+        product_num_reviews: 0,
+        product_num_offers: "4",
+        price_range: [
+            "$53.00",
+            "$53.00"
+        ],
 
     },
     {
-        id: 1,
-        name: 'Earthen Bottle',
-        href: '#',
-        price: '₹299',
-        imageSrc: '/purse.png',
-        imageAlt: 'Tall slender porcelain bottle with natural clay textured body and cork stopper.',
-        desc: 'Tall slender porcelain bottle with natural clay textured body and cork stopper.',
+        product_id: "14480802512949149173",
+        product_id_v2: "14480802512949149173:5616886457579175377",
+        product_title: "Fossil Outlet Men's Privateer Chronograph Leather Watch - Brown Holiday, Christmas and Hanukkah Gifts",
+        product_description: "This 45mm Privateer Features A Black Sunray Dial, Chronograph Movement And Brown Leather Strap. 45mm Case, 24mm Band Width, Mineral Crystal, Quartz Movement With Chronograph Analog Display, Imported. Round Stainless Steel Case, With A Black Dial. Brown, L",
+        product_photos: [
+            "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcSaFYPjcKISB4_mq0M5AXyvcZ-AHJoJPTKMNiXS_ny7uNNZSvmblTq5xfiVG1a17M5APTR58JXRU29AkZik_YB_GMXfz5xbuw&usqp=CAE"
+        ],
+        product_attributes: {
+            Features: "Chronograph, Water Resistant",
+            Watch_Movement: "Quartz",
+            Style: "Wrist",
+            Display: "Analog"
+        },
+        product_rating: null,
+
+
+
+
+        product_num_reviews: 0,
+        product_num_offers: "4",
+        price_range: [
+            "$53.00",
+            "$53.00"
+        ],
 
     },
     {
-        id: 1,
-        name: 'Earthen Bottle',
-        href: '#',
-        price: '₹299',
-        imageSrc: '/purse.png',
-        imageAlt: 'Tall slender porcelain bottle with natural clay textured body and cork stopper.',
-        desc: 'Tall slender porcelain bottle with natural clay textured body and cork stopper.',
+        product_id: "14480802512949149173",
+        product_id_v2: "14480802512949149173:5616886457579175377",
+        product_title: "Fossil Outlet Men's Privateer Chronograph Leather Watch - Brown Holiday, Christmas and Hanukkah Gifts",
+        product_description: "This 45mm Privateer Features A Black Sunray Dial, Chronograph Movement And Brown Leather Strap. 45mm Case, 24mm Band Width, Mineral Crystal, Quartz Movement With Chronograph Analog Display, Imported. Round Stainless Steel Case, With A Black Dial. Brown, L",
+        product_photos: [
+            "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcSaFYPjcKISB4_mq0M5AXyvcZ-AHJoJPTKMNiXS_ny7uNNZSvmblTq5xfiVG1a17M5APTR58JXRU29AkZik_YB_GMXfz5xbuw&usqp=CAE"
+        ],
+        product_attributes: {
+            Features: "Chronograph, Water Resistant",
+            Watch_Movement: "Quartz",
+            Style: "Wrist",
+            Display: "Analog"
+        },
+        product_rating: null,
+
+
+
+
+        product_num_reviews: 0,
+        product_num_offers: "4",
+        price_range: [
+            "$53.00",
+            "$53.00"
+        ],
 
     },
     {
-        id: 1,
-        name: 'Earthen Bottle',
-        href: '#',
-        price: '₹299',
-        imageSrc: '/purse.png',
-        imageAlt: 'Tall slender porcelain bottle with natural clay textured body and cork stopper.',
-        desc: 'Tall slender porcelain bottle with natural clay textured body and cork stopper.',
+        product_id: "14480802512949149173",
+        product_id_v2: "14480802512949149173:5616886457579175377",
+        product_title: "Fossil Outlet Men's Privateer Chronograph Leather Watch - Brown Holiday, Christmas and Hanukkah Gifts",
+        product_description: "This 45mm Privateer Features A Black Sunray Dial, Chronograph Movement And Brown Leather Strap. 45mm Case, 24mm Band Width, Mineral Crystal, Quartz Movement With Chronograph Analog Display, Imported. Round Stainless Steel Case, With A Black Dial. Brown, L",
+        product_photos: [
+            "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcSaFYPjcKISB4_mq0M5AXyvcZ-AHJoJPTKMNiXS_ny7uNNZSvmblTq5xfiVG1a17M5APTR58JXRU29AkZik_YB_GMXfz5xbuw&usqp=CAE"
+        ],
+        product_attributes: {
+            Features: "Chronograph, Water Resistant",
+            Watch_Movement: "Quartz",
+            Style: "Wrist",
+            Display: "Analog"
+        },
+        product_rating: null,
+
+
+
+
+        product_num_reviews: 0,
+        product_num_offers: "4",
+        price_range: [
+            "$53.00",
+            "$53.00"
+        ],
 
     },
     {
-        id: 1,
-        name: 'Earthen Bottle',
-        href: '#',
-        price: '₹299',
-        imageSrc: '/purse.png',
-        imageAlt: 'Tall slender porcelain bottle with natural clay textured body and cork stopper.',
-        desc: 'Tall slender porcelain bottle with natural clay textured body and cork stopper.',
+        product_id: "14480802512949149173",
+        product_id_v2: "14480802512949149173:5616886457579175377",
+        product_title: "Fossil Outlet Men's Privateer Chronograph Leather Watch - Brown Holiday, Christmas and Hanukkah Gifts",
+        product_description: "This 45mm Privateer Features A Black Sunray Dial, Chronograph Movement And Brown Leather Strap. 45mm Case, 24mm Band Width, Mineral Crystal, Quartz Movement With Chronograph Analog Display, Imported. Round Stainless Steel Case, With A Black Dial. Brown, L",
+        product_photos: [
+            "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcSaFYPjcKISB4_mq0M5AXyvcZ-AHJoJPTKMNiXS_ny7uNNZSvmblTq5xfiVG1a17M5APTR58JXRU29AkZik_YB_GMXfz5xbuw&usqp=CAE"
+        ],
+        product_attributes: {
+            Features: "Chronograph, Water Resistant",
+            Watch_Movement: "Quartz",
+            Style: "Wrist",
+            Display: "Analog"
+        },
+        product_rating: null,
+
+
+
+
+        product_num_reviews: 0,
+        product_num_offers: "4",
+        price_range: [
+            "$53.00",
+            "$53.00"
+        ],
 
     },
     {
-        id: 1,
-        name: 'Earthen Bottle',
-        href: '#',
-        price: '₹299',
-        imageSrc: '/purse.png',
-        imageAlt: 'Tall slender porcelain bottle with natural clay textured body and cork stopper.',
-        desc: 'Tall slender porcelain bottle with natural clay textured body and cork stopper.',
+        product_id: "14480802512949149173",
+        product_id_v2: "14480802512949149173:5616886457579175377",
+        product_title: "Fossil Outlet Men's Privateer Chronograph Leather Watch - Brown Holiday, Christmas and Hanukkah Gifts",
+        product_description: "This 45mm Privateer Features A Black Sunray Dial, Chronograph Movement And Brown Leather Strap. 45mm Case, 24mm Band Width, Mineral Crystal, Quartz Movement With Chronograph Analog Display, Imported. Round Stainless Steel Case, With A Black Dial. Brown, L",
+        product_photos: [
+            "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcSaFYPjcKISB4_mq0M5AXyvcZ-AHJoJPTKMNiXS_ny7uNNZSvmblTq5xfiVG1a17M5APTR58JXRU29AkZik_YB_GMXfz5xbuw&usqp=CAE"
+        ],
+        product_attributes: {
+            Features: "Chronograph, Water Resistant",
+            Watch_Movement: "Quartz",
+            Style: "Wrist",
+            Display: "Analog"
+        },
+        product_rating: null,
+
+
+
+
+        product_num_reviews: 0,
+        product_num_offers: "4",
+        price_range: [
+            "$53.00",
+            "$53.00"
+        ],
 
     },
 
@@ -106,7 +242,7 @@ const TrendingItems = () => {
                     </div>
                     <div className='grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8 '>
                         {products.map((product) => (
-                            <Product key={product.id} id={product.id} name={product.name} href={product.href} imageSrc={product.imageSrc} imageAlt={product.imageAlt} price={product.price} desc={product.desc} />
+                            <Product product={product} />
                         ))}
                     </div>
                     <div className='flex md:flex-row flex-col gap-4 mt-5'>

@@ -2,78 +2,85 @@
 import Image from 'next/image';
 import React from 'react'
 import { useForm, SubmitHandler } from "react-hook-form"
-const product: Product =
-{
-    id: 1,
-    name: 'Girl Top',
-    price: '$48',
-    imageSrc: '/girl-model.png',
-    imageAlt: 'top',
-    rating: 4,
-    category: 'household',
-    desc: 'Introducing the epitome of style and sophistication  our Girl Top, a must-have addition to any fashion-forward wardrobe. Crafted with meticulous attention to detail, this top seamlessly blends comfort with contemporary chic.',
-    size: ['S', 'M', 'L', 'XL', 'XXL'],
+import { add } from '@/store/cartSlice';
+import { useDispatch } from 'react-redux';
+import { active_wear_for_women, hoodie, jeans, kurtas, leggins, shirts_mens, top_womens, shoes, watch, women_shirts } from '@/data';
 
-}
+// merge all elements of array into one array
+const products = [...active_wear_for_women, ...hoodie, ...jeans, ...kurtas, ...leggins, ...shirts_mens, ...top_womens, ...shoes, ...watch, ...women_shirts]
 
 
-type Product = {
-    id: number;
-    name: string;
-    price: string;
-    imageSrc: string;
-    imageAlt: string;
-    rating: number;
-    desc: string;
-    category: string;
-    size: string[];
-}
 type Inputs = {
     pincode: number;
 }
 
-const Detail = ({ title }: any) => {
+const Detail = ({ id }: any) => {
+    const dispatch = useDispatch();
+    const product: any = products.find((e: any) => e.product_id === id);
+
+    if (!product) {
+        return <div>loading</div>
+    }
+
+    //if price range is not available, set it to 0 and get first price in array
+    if (!product?.price_range) {
+        product.price_range = [300]
+    }
+
+    //handling forms
     const {
         register,
         handleSubmit,
         formState: { errors },
     } = useForm<Inputs>()
+
+    //check if pincode is available
     const checkAvailabitly = async () => {
         // console.log('checking')
     }
+
+    //on submiting form
     const onSubmit: SubmitHandler<Inputs> = async (data) => {
         await checkAvailabitly()
         console.log(data);
     }
+
+    //add to cart
+    const addToCart = (id: string, title: string, price: number, image: string) => {
+        console.log('added to cart');
+        dispatch(add({ id: id, title: title, price: price, image: image }))
+    }
+
+
     return (
 
         <div className='container mx-auto p-4 m-2'>
             <div className='flex flex-col md:flex-row gap-5'>
-                <div className='md:w-[40%] md:h-[500px] h-auto w-[90] flex items-center justify-center mx-auto bg-gray-300 '>
-                    <Image src={product.imageSrc} alt={product.imageAlt} width={400} height={400} />
+                <div className='md:w-[40%] md:h-[100%] h-auto w-[90] flex items-center justify-center mx-auto bg-gray-300 '>
+                    <Image src={product.product_photos[0]} alt={product.product_title} width={600} height={600} className='h-50' />
                 </div>
                 <div className='md:w-[40%]  w-full flex flex-col  mx-auto  '>
                     <h3 className='text-2xl uppercase font-bold'>
-                        {product.name}
+                        {product.product_title}
                     </h3>
-                    <p className='text-gray-400 mt-2 md:text-base text-sm'>{product.desc}</p>
-                    <p className='mt-4 text-2xl font-semibold'>{product.price}</p>
+                    <p className='text-gray-400 mt-2 md:text-base text-sm'>{product.product_description}</p>
+                    <p className='mt-4 text-2xl font-semibold'>₹ {product.price_range[0]}</p>
                     <span className='text-green-500 font-semibold md:text-base text-sm' >inclusive of all taxes</span>
                     <hr className='mt-4' />
-                    {product?.size &&
+                    {product?.product_attributes.size &&
                         <div className='flex md:flex-col justify-between md:justify-start mt-4'>
                             <p className='md:text-xl text-base mb-2'>SELECT SIZE</p>
                             <select className='md:w-[20%] bg-gray-200 outline-none border-[1px] border-gray-100 focus:bg-white rounded-lg md:p-2 px-2 py-1'>
                                 {
-                                    product?.size.map((e) => {
-                                        return <option>{e}</option>
+                                    product?.product_attributes.size.map((e: any) => {
+                                        return <option key={e}>{e}</option>
                                     })
                                 }
                             </select>
                         </div>
                     }
 
-                    <button className='bg-black text-white rounded-lg p-2 mt-4'>ADD TO CART</button>
+                    <button className='bg-black text-white rounded-lg p-2 mt-4' onClick={() => addToCart(product.product_id, product.product_title, product.price_range[0], product.product_photos[0])}>ADD TO CART</button>
                     <hr className='mt-5' />
                     <div className='flex flex-col '>
                         <h3 className='text-base font-bold mt-4 tracking-tight'>DELIVERY OPTIONS</h3>
@@ -94,7 +101,6 @@ const Detail = ({ title }: any) => {
                 </div>
             </div>
         </div>
-
     )
 
 }

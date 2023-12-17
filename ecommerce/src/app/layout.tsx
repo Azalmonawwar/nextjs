@@ -5,6 +5,8 @@ import './globals.css'
 import Navbar from '@/components/Navbar'
 import Footer from '../components/Footer'
 import NextTopLoader from 'nextjs-toploader';
+import { Providers } from '@/store/provider'
+
 const poppins = Poppins({ weight: ['200', '300', '400', '500', '600', '700'], subsets: ['latin'] })
 
 export const metadata: Metadata = {
@@ -26,10 +28,13 @@ export default function RootLayout({
       <body className={poppins.className}>
         <NextTopLoader
           color='#000000' />
-        <Navbar />
-        {children}
-        <Footer />
+        <Providers>
+          <Navbar />
+          {children}
+          <Footer />
+        </Providers>
       </body>
+
     </html>
   )
 }
