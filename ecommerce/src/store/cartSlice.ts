@@ -7,8 +7,11 @@ interface CartState {
   totalPrice: number;
 }
 
-
-const cart = localStorage.getItem('cart');
+const ISSERVER = typeof window === "undefined";
+let cart;
+if(!ISSERVER){
+    cart = localStorage.getItem('cart');
+}
 const initialState:CartState = cart ? JSON.parse(cart) : { items: {}, totalPrice: 0 };
 
 
