@@ -17,21 +17,21 @@ const Product = ({ product }: any) => {
     return (
 
 
-        <Link href={`/product/${product.product_id}`} className="group">
-            <div key={product.product_id} className="aspect-h-1 aspect-w-1  overflow-hidden h-[300px] w-[250px] bg-gray-200 xl:aspect-h-8 xl:aspect-w-7">
+        <Link href={`/product/${product.product_id}`} className="flex flex-col border-[1px] border-gray-300  items-center">
+            <div key={product.product_id} className=" aspect-h-1 aspect-w-1  overflow-hidden h-[300px] w-[250px] bg-gray-200 xl:aspect-h-8 xl:aspect-w-7">
                 <Image
                     width={300}
                     height={300}
                     src={product.product_photos[0]}
                     alt={product.product_title}
-                    className=" h-full w-full object-cover group-hover:scale-105 transition-all duration-500 ease-in-out "
+                    className=" h-full w-full object-cover hover:scale-110 transition-all duration-500 ease-in-out "
                 />
             </div>
 
 
-            <h3 className="mt-4 md:text-base text-sm  text-gray-700 font-semibold">{product.product_title}</h3>
-            <p className="mt-2 text-xs text-gray-400 product-desc overflow-hidden text-ellipsis whitespace-nowrap"> {product.product_description}</p>
-            <p className="mt-1 text-lg font-medium text-gray-900">₹ {product.price_range[0]}</p>
+            <h3 className="mt-4 pl-3 md:text-base text-sm  text-gray-700 font-semibold md:mr-auto">{product.product_title}</h3>
+            <p className="mt-2 pl-3 text-xs text-gray-400 product-desc overflow-hidden text-ellipsis whitespace-nowrap md:mr-auto"> {product.product_description}</p>
+            <p className="mt-1 pl-3 text-lg font-medium text-gray-900 md:mr-auto">₹ {product.price_range[0]}</p>
         </Link>
 
     )

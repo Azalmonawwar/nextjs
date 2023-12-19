@@ -14,18 +14,18 @@ const special: Special = [
     {
         title: 'Shirts',
         image: '/men-model.png',
-        link: '/product'
+        link: '/men'
 
     },
     {
         title: "T-Shirts",
         image: '/girl-model.png',
-        link: '/product'
+        link: '//women'
     },
     {
         title: "Hoodie",
         image: '/kids-model.png',
-        link: '/product'
+        link: '/kids'
     }
 ]
 const SpecialProducts = () => {
@@ -46,7 +46,7 @@ const SpecialProducts = () => {
                                         <div className="overlay absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300">
                                             <div className="text-white text-center">
                                                 <h2 className="text-2xl font-thin mb-2 uppercase tracking-[5px]">{item.title}</h2>
-                                                <Link href={`${item.link}/${item.title.toLowerCase()}`} className="bg-black text-white px-4 py-2 rounded hover:bg-gray-900">
+                                                <Link href={`${item.link}`} className="bg-black text-white px-4 py-2 rounded hover:bg-gray-900">
                                                     Shop Now
                                                 </Link>
                                             </div>

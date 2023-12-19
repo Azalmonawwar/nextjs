@@ -63,10 +63,11 @@ const Navbar = () => {
                     <Image src={'/hamburger.png'} width={24} height={24} className={'w-[20%] md:hidden block z-50'} alt={'menu'} onClick={toggleMenu} />
                     <h1 className={`text-xl font-bold ${robotoc.className} uppercase`}><Link href={'/'}>Lyntra</Link></h1>
                 </div>
-                <div className='flex-center gap-4 md:hidden'>
+                <div className='flex-center gap-4 md:hidden relative'>
                     <Image src={'/search1.png'} width={20} height={20} alt={'user'} />
                     <Link href={'/profile'}><Image src={'/user.png'} width={20} height={20} alt={'user'} /></Link>
                     <Link href={'/cart'}><Image src={'/cart.png'} width={20} height={20} alt={'cart'} /></Link>
+                    <div className='absolute top-0 right-0 bg-red-500 text-white text-[10px] px-1 rounded-full'>{length}</div>
                 </div>
                 {/* sidemenu */}
                 {
