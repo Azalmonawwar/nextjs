@@ -20,7 +20,7 @@ const special: Special = [
     {
         title: "T-Shirts",
         image: '/girl-model.png',
-        link: '//women'
+        link: '/women'
     },
     {
         title: "Hoodie",

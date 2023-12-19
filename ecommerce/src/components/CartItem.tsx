@@ -1,5 +1,5 @@
 'use client'
-import { remove } from '@/store/cartSlice';
+import { add, remove } from '@/store/cartSlice';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react'
@@ -7,23 +7,27 @@ import { useDispatch } from 'react-redux';
 const CartItem = ({ product }: any) => {
     const dispatch = useDispatch();
     const [quantity, setQuantity] = React.useState(product.quantity);
-
+    console.log(product.quantity)
     //setting product title to limit the length of the title in 30 characters
     const title = product.title.length > 30 ? product.title.slice(0, 30) + '...' : product.title;
 
-    const handleIncrement = () => {
+    const handleIncrement = (id: string, title: string, price: number, image: string) => {
         if (quantity === 10) return;
         setQuantity((prev: any) => prev + 1)
+        dispatch(add({ id: id, title: title, price: price, image: image }))
     };
 
-    const handleDecrement = () => {
+    const handleDecrement = (id: string, price: number) => {
         if (quantity === 1) return;
         setQuantity((prev: any) => prev - 1)
+        dispatch(remove({ id: id, price: price }))
     };
 
     const deleteItem = (id: string, price: number) => {
         dispatch(remove({ id: id, price: price }))
     }
+
+
 
     const handleChange = (e: any) => {
         setQuantity(e.target.value)
@@ -39,9 +43,9 @@ const CartItem = ({ product }: any) => {
             <div className="ml-auto">
                 <div className="mt-4 flex justify-between sm:space-y-6 sm:mt-0 sm:block sm:space-x-6">
                     <div className="flex items-center border-gray-100">
-                        <span className="cursor-pointer rounded-l bg-gray-100 py-1 px-3.5 duration-100 hover:bg-blue-500 hover:text-blue-50" onClick={handleDecrement}> - </span>
+                        <span className="cursor-pointer rounded-l bg-gray-100 py-1 px-3.5 duration-100 hover:bg-blue-500 hover:text-blue-50" onClick={() => handleDecrement(product.id, product.price)}> - </span>
                         <input className="h-8 w-8 border bg-white text-center text-xs outline-none" type="number" onChange={handleChange} value={quantity} min="1" />
-                        <span className="cursor-pointer rounded-r bg-gray-100 py-1 px-3 duration-100 hover:bg-blue-500 hover:text-blue-50" onClick={handleIncrement}> + </span>
+                        <span className="cursor-pointer rounded-r bg-gray-100 py-1 px-3 duration-100 hover:bg-blue-500 hover:text-blue-50" onClick={() => handleIncrement(product.id, product.title, product.price, product.image)}> + </span>
                     </div>
                     <div className="flex items-center space-x-4">
                         <p className="text-sm">$ {product.price * quantity}</p>

@@ -8,7 +8,7 @@ type IProducts={
     desc:string,
 }
 type Products=IProducts[]
-export  const products :Products= [
+export  const product :Products= [
     {
         id: 1,
         name: 'Earthen Bottle',
@@ -9836,3 +9836,7 @@ export const active_wear_for_women = [
         
       }
     ]
+
+
+    // merge all elements of array into one array
+export const products = [...active_wear_for_women, ...hoodie, ...jeans, ...kurtas, ...leggins, ...shirts_mens, ...top_womens, ...shoes, ...watch, ...women_shirts]

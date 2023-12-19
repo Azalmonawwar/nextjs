@@ -18,7 +18,7 @@ const Product = ({ product }: any) => {
 
 
         <Link href={`/product/${product.product_id}`} className="flex flex-col border-[1px] border-gray-300  items-center">
-            <div key={product.product_id} className=" aspect-h-1 aspect-w-1  overflow-hidden h-[300px] w-[250px] bg-gray-200 xl:aspect-h-8 xl:aspect-w-7">
+            <div key={product.product_id} className=" aspect-h-1 aspect-w-1  overflow-hidden md:h-[250px] md:w-[200px] lg:h-[300px] lg:w-[250px] bg-gray-200 xl:aspect-h-8 xl:aspect-w-7">
                 <Image
                     width={300}
                     height={300}
