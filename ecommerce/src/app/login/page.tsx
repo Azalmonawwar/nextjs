@@ -6,7 +6,7 @@ import { useRouter } from 'next/navigation';
 import Wrapper from '@/components/Wrapper';
 import { loginSchema } from '@/formSchema/schema';
 import { useDispatch, useSelector } from 'react-redux';
-import { login } from '@/store/authSlice';
+// import { login } from '@/store/authSlice';
 type Inputs = {
     email: string;
     password: string;
@@ -17,7 +17,7 @@ const Login = () => {
     })
 
     const { isAuthenticated } = useSelector((state: any) => state.auth);
-    const distpatch = useDispatch()
+    // const distpatch = useDispatch()
     const router = useRouter()
 
     const onSubmit: SubmitHandler<Inputs> = async (data) => {
@@ -25,7 +25,7 @@ const Login = () => {
         await loginUser(data)
     }
     const loginUser = async (data: Inputs) => {
-        distpatch(login({ token: "", isAuthenticated: true }))
+        // distpatch(login({ token: "", isAuthenticated: true }))
         router.push('/profile')
         console.log(data)
     }
