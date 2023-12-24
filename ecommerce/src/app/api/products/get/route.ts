@@ -7,8 +7,7 @@ export async function GET(request: NextRequest) {
     await connectToDatabase();
     const query = request.nextUrl.searchParams;
     const id = query.get("id");
-    console.log(id);
-    const products = await Product.findOne({ id });
+    const products = await Product.find({ id });
     return NextResponse.json(
       { message: "product fetch successfully", products },
       { status: 200 }
