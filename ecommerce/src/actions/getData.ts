@@ -1,8 +1,21 @@
 "use server";
 import { connectToDatabase } from "@/db/dbConnect";
 import Product from "@/models/products.model";
-
-export async function getData(category: string, department: string) {
+import mongoose from "mongoose";
+interface Product {
+  _id: mongoose.Types.ObjectId;
+  id: string;
+  title: string;
+  price: number;
+  rating: string;
+  category: string;
+  department: string;
+  image: string;
+}
+export async function getData(
+  category: string,
+  department: string
+): Promise<Product[]> {
   try {
     await connectToDatabase();
 
@@ -15,6 +28,19 @@ export async function getData(category: string, department: string) {
 
     return products;
   } catch (error) {
-    return error;
+    console.log(error);
+    const empty = [
+      {
+        _id: new mongoose.Types.ObjectId(),
+        id: "",
+        title: "",
+        price: 0,
+        rating: "",
+        category: "",
+        department: "",
+        image: "",
+      },
+    ];
+    return empty;
   }
 }
