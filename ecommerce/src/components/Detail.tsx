@@ -84,7 +84,7 @@ const Detail = ({ id }: any) => {
                 {
                     data.products.map((product: any) => {
                         return (
-                            <div className='container mx-auto p-4 m-2'>
+                            <div key={product.id} className='container mx-auto p-4 m-2'>
                                 <div className='flex flex-col md:flex-row gap-5'>
                                     <div className='md:w-[40%] md:h-[100%] h-auto w-[90] flex items-center justify-center mx-auto bg-gray-300 '>
                                         <Image src={product.image} alt={product.title} width={600} height={600} className='h-50' />
