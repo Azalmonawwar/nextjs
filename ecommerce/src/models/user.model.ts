@@ -1,5 +1,5 @@
 //User models 
-import {Document,Model, Schema, model, models } from 'mongoose';
+import {Document, Schema, model, models } from 'mongoose';
 import bcrypt from 'bcrypt'
 
 type NextFunction = (err?: any) => void;
