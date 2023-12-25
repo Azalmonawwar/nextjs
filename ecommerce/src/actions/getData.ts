@@ -44,3 +44,30 @@ export async function getData(
     return empty;
   }
 }
+
+//get data by id
+export async function getDataById(id: string): Promise<Product[]> {
+  try {
+    await connectToDatabase();
+
+    //getting product by category and department
+    const products = await Product.find({ id: id });
+    const response = JSON.parse(JSON.stringify(products));
+    return response;
+  } catch (error) {
+    console.log(error);
+    const empty = [
+      {
+        _id: new mongoose.Types.ObjectId(),
+        id: "",
+        title: "",
+        price: 0,
+        rating: "",
+        category: "",
+        department: "",
+        image: "",
+      },
+    ];
+    return empty;
+  }
+}
