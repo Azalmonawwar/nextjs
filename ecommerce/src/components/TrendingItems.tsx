@@ -4,59 +4,15 @@ import Image from 'next/image'
 import { Rubik } from 'next/font/google'
 import { Roboto_Condensed } from 'next/font/google'
 import SmallCard from './SmallCard'
+import { getDataByHighestPrice } from '@/actions/getData'
 
 const robotoc = Roboto_Condensed({ weight: ['700'], subsets: ['latin'] })
 const rubik = Rubik({ weight: ['400', '500', '700'], subsets: ['latin'] })
-//will delete later 
-const products = [
-    {
-        "product_id": '1362027436337942980',
-        "product_title": "Mens T-Shirt",
-        "product_description": "Mens T-Shirt",
-        "product_photos": [
-            "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcTKnxOT2tXmZFSlXnvEEPKtIt4XiR7kNSDbg-FNndBAq-B37cCG7v0hWMUiKHJCkZmcXNObIuxxpE6gO5G3I3mlIYaKOITaOw&usqp=CAE"
-        ],
-        "price_range": [
-            300
-        ]
-    },
-    {
-        "product_id": '1362027436337942980',
-        "product_title": "Mens T-Shirt",
-        "product_description": "Mens T-Shirt",
-        "product_photos": [
-            "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcTKnxOT2tXmZFSlXnvEEPKtIt4XiR7kNSDbg-FNndBAq-B37cCG7v0hWMUiKHJCkZmcXNObIuxxpE6gO5G3I3mlIYaKOITaOw&usqp=CAE"
-        ],
-        "price_range": [
-            300
-        ]
-    },
-    {
-        "product_id": '1362027436337942980',
-        "product_title": "Mens T-Shirt",
-        "product_description": "Mens T-Shirt",
-        "product_photos": [
-            "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcTKnxOT2tXmZFSlXnvEEPKtIt4XiR7kNSDbg-FNndBAq-B37cCG7v0hWMUiKHJCkZmcXNObIuxxpE6gO5G3I3mlIYaKOITaOw&usqp=CAE"
-        ],
-        "price_range": [
-            300
-        ]
-    },
-    {
-        "product_id": '1362027436337942980',
-        "product_title": "Mens T-Shirt",
-        "product_description": "Mens T-Shirt",
-        "product_photos": [
-            "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcTKnxOT2tXmZFSlXnvEEPKtIt4XiR7kNSDbg-FNndBAq-B37cCG7v0hWMUiKHJCkZmcXNObIuxxpE6gO5G3I3mlIYaKOITaOw&usqp=CAE"
-        ],
-        "price_range": [
-            300
-        ]
-    },
-]
 
 
-const TrendingItems = () => {
+const TrendingItems = async () => {
+    const products = await getDataByHighestPrice()
+
     return (
         <section className='container mx-auto'>
             <div className='p-4 m-2'>
@@ -67,7 +23,7 @@ const TrendingItems = () => {
                     </div>
                     <div className='grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8 '>
                         {products.map((product: any) => (
-                            <SmallCard key={product.product_id} product={product} />
+                            <SmallCard key={product.id} product={product} />
                         ))}
                     </div>
                     <div className='flex md:flex-row flex-col gap-4 mt-5'>

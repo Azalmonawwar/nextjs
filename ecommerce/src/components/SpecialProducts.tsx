@@ -2,33 +2,12 @@ import React from 'react'
 import { Roboto_Condensed } from 'next/font/google'
 import Image from 'next/image'
 import Link from 'next/link'
+import { getDataByDepartment, getDataByHighestPrice } from '@/actions/getData'
 
 const robotoc = Roboto_Condensed({ weight: ['700'], subsets: ['latin'] })
-type SpecialItem = {
-    title: string;
-    image: string;
-    link: string;
-}
-type Special = SpecialItem[];
-const special: Special = [
-    {
-        title: 'Shirts',
-        image: '/men-model.png',
-        link: '/men'
 
-    },
-    {
-        title: "T-Shirts",
-        image: '/girl-model.png',
-        link: '/women'
-    },
-    {
-        title: "Hoodie",
-        image: '/kids-model.png',
-        link: '/kids'
-    }
-]
-const SpecialProducts = () => {
+const SpecialProducts = async () => {
+    const special = await getDataByDepartment()
     return (
         <section className='container mx-auto'>
             <div className='p-4 m-2 '>
@@ -41,12 +20,12 @@ const SpecialProducts = () => {
                         {
                             special.map((item, index) => {
                                 return (
-                                    <div key={index} className="card-container relative overflow-hidden bg-gray-300 md:w-[33%] flex items-center justify-center w-full">
-                                        <Image src={`${item.image}`} alt={item.image} height={400} width={300} />
+                                    <div key={index} className="card-container relative overflow-hidden border-gray-300 border-[1px]  md:w-[33%] flex items-center justify-center w-full">
+                                        <Image src={item.product.image} alt={item.product.image} height={400} width={300} />
                                         <div className="overlay absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300">
                                             <div className="text-white text-center">
-                                                <h2 className="text-2xl font-thin mb-2 uppercase tracking-[5px]">{item.title}</h2>
-                                                <Link href={`${item.link}`} className="bg-black text-white px-4 py-2 rounded hover:bg-gray-900">
+                                                <h2 className="text-2xl font-thin mb-2 uppercase tracking-[5px]">{item.product.title}</h2>
+                                                <Link href={`/product/${item.product.id}`} className="bg-black text-white px-4 py-2 rounded hover:bg-gray-900">
                                                     Shop Now
                                                 </Link>
                                             </div>
@@ -60,12 +39,12 @@ const SpecialProducts = () => {
                         {
                             special.map((item, index) => {
                                 return (
-                                    <div key={index} className="card-container relative overflow-hidden bg-gray-300 md:w-[33%] flex items-center justify-center w-full">
-                                        <Image src={`${item.image}`} alt={item.image} height={400} width={300} />
+                                    <div key={index} className="card-container relative overflow-hidden border-[1px] border-gray-300 md:w-[33%] flex items-center justify-center w-full">
+                                        <Image src={item.product.image} alt={item.product.image} height={400} width={300} />
                                         <div className="overlay absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300">
                                             <div className="text-white text-center">
-                                                <h2 className="text-2xl font-thin mb-2 uppercase tracking-[5px]">{item.title}</h2>
-                                                <Link href={`${item.link}/${item.title.toLowerCase()}`} className="bg-black text-white px-4 py-2 rounded hover:bg-gray-900">
+                                                <h2 className="text-2xl font-thin mb-2 uppercase tracking-[5px]">{item.product.title}</h2>
+                                                <Link href={`/product/${item.product.id}}`} className="bg-black text-white px-4 py-2 rounded hover:bg-gray-900">
                                                     Shop Now
                                                 </Link>
                                             </div>

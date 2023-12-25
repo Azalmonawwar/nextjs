@@ -23,10 +23,11 @@ export async function getData(
     const products = await Product.aggregate([
       { $match: { category: category } },
       { $match: { department: department } },
-      { $limit: 25 },
+      { $sample: { size: 20 } },
     ]);
 
-    return products;
+    const response = JSON.parse(JSON.stringify(products));
+    return response;
   } catch (error) {
     console.log(error);
     const empty = [
@@ -66,6 +67,70 @@ export async function getDataById(id: string): Promise<Product[]> {
         category: "",
         department: "",
         image: "",
+      },
+    ];
+    return empty;
+  }
+}
+
+//get data by highest price
+export async function getDataByHighestPrice(): Promise<Product[]> {
+  try {
+    await connectToDatabase();
+
+    //getting product by category and department
+    const products = await Product.find().sort({ price: 1 }).limit(4);
+    const response = JSON.parse(JSON.stringify(products));
+    return response;
+  } catch (error) {
+    console.log(error);
+    const empty = [
+      {
+        _id: new mongoose.Types.ObjectId(),
+        id: "",
+        title: "",
+        price: 0,
+        rating: "",
+        category: "",
+        department: "",
+        image: "",
+      },
+    ];
+    return empty;
+  }
+}
+
+//get one product of each department
+
+type DepProduct = {
+  _id: string;
+  product: Product;
+};
+export async function getDataByDepartment(): Promise<DepProduct[]> {
+  try {
+    await connectToDatabase();
+
+    //getting product by category and department
+    const products = await Product.aggregate([
+      { $group: { _id: "$department", product: { $first: "$$ROOT" } } },
+    ]);
+    const response = JSON.parse(JSON.stringify(products));
+    return response;
+  } catch (error) {
+    console.log(error);
+    const empty = [
+      {
+        _id: "",
+        product: {
+          _id: new mongoose.Types.ObjectId(),
+          id: "",
+          title: "",
+          price: 0,
+          rating: "",
+          category: "",
+          department: "",
+          image: "",
+        },
       },
     ];
     return empty;
