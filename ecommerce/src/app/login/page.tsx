@@ -5,8 +5,9 @@ import { useForm, SubmitHandler } from 'react-hook-form';
 import { useRouter } from 'next/navigation';
 import Wrapper from '@/components/Wrapper';
 import { loginSchema } from '@/formSchema/schema';
-import { useDispatch, useSelector } from 'react-redux';
-// import { login } from '@/store/authSlice';
+import axios from 'axios';
+import toast from 'react-hot-toast';
+
 type Inputs = {
     email: string;
     password: string;
@@ -16,18 +17,24 @@ const Login = () => {
         resolver: yupResolver(loginSchema),
     })
 
-    const { isAuthenticated } = useSelector((state: any) => state.auth);
-    // const distpatch = useDispatch()
+
     const router = useRouter()
 
     const onSubmit: SubmitHandler<Inputs> = async (data) => {
-        // console.log(data)
-        await loginUser(data)
+        const response: any = await loginUser(data);
+        if (response.status === 200) {
+            toast.success('Login success')
+        }
+        router.push('/profile')
     }
     const loginUser = async (data: Inputs) => {
-        // distpatch(login({ token: "", isAuthenticated: true }))
-        router.push('/profile')
-        console.log(data)
+        try {
+            const response = await axios.post('/api/user/login', data)
+            return response
+        } catch (error: any) {
+            toast.error(error.response.data.message)
+            return error
+        }
     }
 
     return (

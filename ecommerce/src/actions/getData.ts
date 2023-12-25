@@ -79,7 +79,11 @@ export async function getDataByHighestPrice(): Promise<Product[]> {
     await connectToDatabase();
 
     //getting product by category and department
-    const products = await Product.find().sort({ price: 1 }).limit(4);
+    const products = await Product.aggregate([
+      { $match: { department: "women" } },
+      { $sort: { price: -1 } },
+      { $limit: 4 },
+    ]);
     const response = JSON.parse(JSON.stringify(products));
     return response;
   } catch (error) {

@@ -6,7 +6,8 @@ import { useForm, SubmitHandler } from 'react-hook-form'
 import { useRouter } from 'next/navigation'
 import { signupSchema } from '@/formSchema/schema'
 import Wrapper from '@/components/Wrapper'
-
+import { createUser } from '@/actions/user.action'
+import toast from 'react-hot-toast';
 type Inputs = {
     name: string;
     email: string;
@@ -26,12 +27,20 @@ const Register = () => {
 
     const onSubmit: SubmitHandler<Inputs> = async (data) => {
         // console.log(data)
-        await registerUser(data)
+        const register = await registerUser(data)
+        // console.log(register)
+        if (register.status === 201) {
+            toast.success('Register success')
+            router.push('/login')
+        } else {
+            toast.error(register.message)
+        }
     }
 
     const registerUser = async (data: Inputs) => {
-        console.log(data)
+        const response = await createUser(data)
         reset()
+        return response;
     }
 
     return (

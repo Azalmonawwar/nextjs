@@ -16,7 +16,7 @@ const SmallCard = ({ product }: any) => {
             </div>
 
 
-            <h3 className="mt-4 md:text-base text-sm  text-gray-700 font-semibold">{product.title}</h3>
+            <h3 className="mt-4 md:text-base text-sm  text-gray-700 font-semibold">{product.title.slice(0, 30)}</h3>
 
             <p className="mt-1 text-lg font-medium text-gray-900">₹ {product.price}</p>
         </Link>
