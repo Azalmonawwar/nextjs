@@ -22,9 +22,11 @@ const Login = () => {
 
     const onSubmit: SubmitHandler<Inputs> = async (data) => {
         const response: any = await loginUser(data);
-        if (response) {
+        if (response.data.success) {
             toast.success('Login success')
             router.push('/profile')
+        } else {
+            toast.error("Invaluad email or password")
         }
     }
     const loginUser = async (data: Inputs) => {
