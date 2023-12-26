@@ -24,8 +24,8 @@ const Login = () => {
         const response: any = await loginUser(data);
         if (response.status === 200) {
             toast.success('Login success')
+            router.push('/profile')
         }
-        router.push('/profile')
     }
     const loginUser = async (data: Inputs) => {
         try {
