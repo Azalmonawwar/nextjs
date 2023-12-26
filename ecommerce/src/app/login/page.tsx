@@ -22,7 +22,7 @@ const Login = () => {
 
     const onSubmit: SubmitHandler<Inputs> = async (data) => {
         const response: any = await loginUser(data);
-        if (response.status === 200) {
+        if (response) {
             toast.success('Login success')
             router.push('/profile')
         }
