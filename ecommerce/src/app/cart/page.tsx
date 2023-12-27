@@ -45,7 +45,7 @@ const Cart = () => {
             })
         }
 
-    }, [auth.isAuthenticated])
+    }, [auth.isAuthenticated, auth.user._id])
 
     //getting user id
     const id = auth.user._id

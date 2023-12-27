@@ -39,7 +39,7 @@ const Profile = () => {
             }
         })
 
-    }, [auth.isAuthenticated])
+    }, [auth.isAuthenticated, dispatch])
 
     return (
         <div className='flex  flex-col m-5 p-5'>

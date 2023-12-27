@@ -10,7 +10,7 @@ function RelatedProducts({ category, department }: { category: string, departmen
     React.useEffect(() => {
         getData(category, department)
             .then(data => setProducts(data))
-    }, [])
+    }, [category, department])
     return (
         <div className='my-20'>
             <h1 className=' md:text-2xl mb-10 font-semibold md:px-10 px-5 text-xl'>Related Products</h1>
