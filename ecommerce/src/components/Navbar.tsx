@@ -31,7 +31,7 @@ const Navbar = () => {
                 setLen(res?.cart?.products.length)
             })
         }
-    }, [length, auth.isAuthenticated])
+    }, [auth.isAuthenticated])
 
 
     //state to toggle the menu
