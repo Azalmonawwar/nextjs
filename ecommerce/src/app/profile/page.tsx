@@ -1,29 +1,15 @@
 'use client'
 import React from 'react'
-import axios from 'axios'
+import { useSelector } from 'react-redux'
 
-type IUser = {
+type ILogin = {
+    _id: string,
     fullName: string,
     email: string,
-    isAdmin: boolean,
-    _id: string,
-    createdAt: string,
-    updatedAt: string,
 }
 const Profile = () => {
-    const [user, setUser] = React.useState<IUser>({
-        fullName: '',
-        email: '',
-        isAdmin: false,
-        _id: '',
-        createdAt: '',
-        updatedAt: '',
-    })
-    React.useEffect(() => {
-        axios.get('/api/user/me').then((res) => {
-            setUser(res.data.user)
-        })
-    }, [])
+    const { user } = useSelector((state: any) => state.auth)
+    // console.log(user)
     const logout = async () => {
         try {
             const res = await fetch('/api/user/logout', {

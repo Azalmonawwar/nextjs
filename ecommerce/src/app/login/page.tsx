@@ -24,7 +24,7 @@ const Login = () => {
         const response: any = await loginUser(data);
         if (response.data.success) {
             toast.success('Login success')
-            router.push('/profile')
+            window.location.href = '/profile'
         } else {
             toast.error("Invaluad email or password")
         }

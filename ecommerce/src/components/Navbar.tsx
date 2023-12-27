@@ -1,23 +1,47 @@
 'use client'
 import Image from 'next/image'
 import Link from 'next/link'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import React from 'react'
 //fonts 
 import { Roboto_Condensed } from 'next/font/google'
+import axios from 'axios'
+import { login } from '@/store/authSlice'
+import { getCart } from '@/actions/cart.action'
 const robotoc = Roboto_Condensed({ weight: ['700'], subsets: ['latin'] })
 
 
 const menuItems = ['home', 'men', 'women', 'kids', 'accessories',]
+
 const Navbar = () => {
-    const cart = useSelector((state: any) => state.cart)
-    const { items } = cart;
-    const length = Object.keys(items).length
+    const [length, setLen] = React.useState(0)
+    const auth = useSelector((state: any) => state.auth)
+    const dispatch = useDispatch()
+
+    //getting cart length and user details from the server
+    React.useEffect(() => {
+        axios.get('/api/user/me').then((res) => {
+            if (res.data.user) {
+                dispatch(login({ _id: res.data.user._id, fullName: res.data.user.fullName, email: res.data.user.email }))
+            }
+        })
+        //
+        if (auth.isAuthenticated) {
+            getCart(auth.user._id).then((res) => {
+                setLen(res?.cart?.products.length)
+            })
+        }
+    }, [length, auth.isAuthenticated])
+
+
+    //state to toggle the menu
     const [isOpen, setIsOpen] = React.useState(false)
     const isLogged = true
     const toggleMenu = () => {
         setIsOpen(!isOpen)
     }
+
+
     return (
         <header className='w-full fixed top-0 left-0  z-[100] bg-white shadow-[0_8px_30px_rgb(0,0,0,0.12)]' >
 
