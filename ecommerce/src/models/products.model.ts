@@ -9,8 +9,6 @@ export interface Product extends Document {
   image: string;
   category: string;
   department: string;
-  createdAt: Date;
-  updatedAt: Date;
 }
 
 const productSchema = new Schema<Product>(
