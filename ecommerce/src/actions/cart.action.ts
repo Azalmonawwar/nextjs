@@ -68,7 +68,8 @@ export async function getCart(userId: Schema.Types.ObjectId) {
     //find cart of user
     const cart = await Cart.findOne({ user: userId }).populate({
       path: "products.product",
-      select: "",
+      model: "Product",
+      select: "_id title price image id",
     }); //"products.product",
     //"_id title price image id"
 

@@ -14,9 +14,7 @@ type Data = {
         title: string,
         price: number,
         image: string,
-        category: string,
-        department: string,
-        rating: number,
+
     },
     quantity: number
 }
@@ -34,9 +32,7 @@ const Cart = () => {
                 title: '',
                 price: 0,
                 image: '/user.png',
-                category: '',
-                department: '',
-                rating: 0,
+
             },
             quantity: 0
         }
