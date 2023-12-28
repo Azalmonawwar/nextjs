@@ -3,11 +3,10 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useDispatch, useSelector } from 'react-redux'
 import React from 'react'
-//fonts 
 import { Roboto_Condensed } from 'next/font/google'
-import axios from 'axios'
 import { login } from '@/store/authSlice'
 import { getCart } from '@/actions/cart.action'
+import { getUser } from '@/actions/user.action'
 const robotoc = Roboto_Condensed({ weight: ['700'], subsets: ['latin'] })
 
 
@@ -20,18 +19,17 @@ const Navbar = () => {
 
     //getting cart length and user details from the server
     React.useEffect(() => {
-        axios.get('/api/user/me').then((res) => {
-            if (res.data.user) {
-                dispatch(login({ _id: res.data.user._id, fullName: res.data.user.fullName, email: res.data.user.email }))
-            }
+        getUser().then((res) => {
+            dispatch(login({ fullName: res?.user?.fullName, email: res?.user?.email, _id: res?.user?._id, isAdmin: res?.user?.isAdmin }))
         })
-        //
         if (auth.isAuthenticated) {
-            getCart(auth.user._id).then((res) => {
-                setLen(res?.cart?.products.length)
+            getCart(auth?.user?._id).then((res) => {
+                setLen(res?.cart?.products?.length)
             })
         }
-    }, [auth.isAuthenticated, dispatch, auth.user._id])
+    }, [])
+
+
 
 
     //state to toggle the menu

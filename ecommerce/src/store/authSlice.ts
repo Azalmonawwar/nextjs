@@ -8,6 +8,7 @@ interface AuthState {
     fullName: string;
     email: string;
     _id: string;
+    isAdmin?: boolean;
   };
 }
 
@@ -17,6 +18,7 @@ const initialState: AuthState = {
     fullName: "",
     email: "",
     _id: "",
+    isAdmin: false,
   },
 };
 
@@ -26,7 +28,12 @@ const authSlice = createSlice({
   reducers: {
     login(
       state,
-      action: PayloadAction<{ fullName: string; email: string; _id: string }>
+      action: PayloadAction<{
+        fullName: string;
+        email: string;
+        _id: string;
+        isAdmin: boolean;
+      }>
     ) {
       state.isAuthenticated = true;
       state.user = action.payload;

@@ -30,7 +30,7 @@ const Cart = () => {
                 _id: '',
                 title: '',
                 price: 0,
-                image: ''
+                image: '/user.png'
             },
             quantity: 0
         }

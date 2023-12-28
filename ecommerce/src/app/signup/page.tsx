@@ -26,14 +26,16 @@ const Register = () => {
     })
 
     const onSubmit: SubmitHandler<Inputs> = async (data) => {
-        // console.log(data)
-        const register = await registerUser(data)
-        // console.log(register)
-        if (register.status === 201) {
-            toast.success('Register success')
-            router.push('/login')
-        } else {
-            toast.error(register.message)
+        try {
+            // console.log(data)
+            const register = await registerUser(data)
+            // console.log(register)
+            if (register.status === 201) {
+                toast.success('Register success')
+                router.push('/login')
+            }
+        } catch (error: any) {
+            toast.error(error.message)
         }
     }
 

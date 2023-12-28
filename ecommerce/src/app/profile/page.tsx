@@ -1,17 +1,9 @@
 'use client'
-import { login } from '@/store/authSlice'
-import axios from 'axios'
 import React from 'react'
 import { useSelector } from 'react-redux'
-import { useDispatch } from 'react-redux'
-type ILogin = {
-    _id: string,
-    fullName: string,
-    email: string,
-}
+
 const Profile = () => {
     const { user } = useSelector((state: any) => state.auth)
-    // console.log(user)
     const logout = async () => {
         try {
             const res = await fetch('/api/user/logout', {
@@ -28,18 +20,6 @@ const Profile = () => {
         }
     }
 
-    const auth = useSelector((state: any) => state.auth)
-    const dispatch = useDispatch()
-
-    //getting cart length and user details from the server
-    React.useEffect(() => {
-        axios.get('/api/user/me').then((res) => {
-            if (res.data.user) {
-                dispatch(login({ _id: res.data.user._id, fullName: res.data.user.fullName, email: res.data.user.email }))
-            }
-        })
-
-    }, [auth.isAuthenticated, dispatch])
 
     return (
         <div className='flex  flex-col m-5 p-5'>

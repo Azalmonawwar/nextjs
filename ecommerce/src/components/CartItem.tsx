@@ -39,7 +39,7 @@ const CartItem = ({ product, item, auth }: any) => {
     return (
         <div className="justify-between mb-6 rounded-lg bg-white p-6 shadow-md sm:flex sm:justify-start">
             <div className='flex gap-4'>
-                <Link href={`/product/${product.id}`}><Image src={product.image} alt={product.title} width={200} height={200} className=" rounded-lg object-cover sm:w-20 md:w-40" /></Link>
+                <Link href={`/product/${product.id}`}><Image src={product.image} alt={product.id} width={200} height={200} className=" rounded-lg object-cover sm:w-20 md:w-40" /></Link>
                 <div className="mt-5 sm:mt-0">
                     <h2 className="text-lg font-bold text-gray-900">{title}</h2>
                 </div>

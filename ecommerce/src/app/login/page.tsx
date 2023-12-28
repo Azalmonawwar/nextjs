@@ -5,8 +5,8 @@ import { useForm, SubmitHandler } from 'react-hook-form';
 import { useRouter } from 'next/navigation';
 import Wrapper from '@/components/Wrapper';
 import { loginSchema } from '@/formSchema/schema';
-import axios from 'axios';
 import toast from 'react-hot-toast';
+import { login } from '@/actions/user.action';
 
 type Inputs = {
     email: string;
@@ -22,7 +22,7 @@ const Login = () => {
 
     const onSubmit: SubmitHandler<Inputs> = async (data) => {
         const response: any = await loginUser(data);
-        if (response.data.success) {
+        if (response.success) {
             toast.success('Login success')
             window.location.href = '/profile'
         } else {
@@ -31,7 +31,7 @@ const Login = () => {
     }
     const loginUser = async (data: Inputs) => {
         try {
-            const response = await axios.post('/api/user/login', data)
+            const response = await login(data)
             return response
         } catch (error: any) {
             toast.error(error.response.data.message)
