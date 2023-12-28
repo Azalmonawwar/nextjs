@@ -7,6 +7,7 @@ import { Roboto_Condensed } from 'next/font/google'
 import { login } from '@/store/authSlice'
 import { getCart } from '@/actions/cart.action'
 import { getUser } from '@/actions/user.action'
+import Nothin from './Nothin'
 const robotoc = Roboto_Condensed({ weight: ['700'], subsets: ['latin'] })
 
 
@@ -36,9 +37,10 @@ const menuItems = [
 const Navbar = () => {
     const [length, setLen] = React.useState(0)
     const auth = useSelector((state: any) => state.auth)
+    // const cart = useSelector((state: any) => state.cart)
     const dispatch = useDispatch()
 
-    //getting cart length and user details from the server
+    // getting cart length and user details from the server
     React.useEffect(() => {
         getUser().then((res) => {
             dispatch(login({ fullName: res?.user?.fullName, email: res?.user?.email, _id: res?.user?._id, isAdmin: res?.user?.isAdmin }))
@@ -51,7 +53,7 @@ const Navbar = () => {
             setLen(res?.cart?.products?.length)
         })
     }, [auth, length])
-
+    // console.log(cart)
     //state to toggle the menu
     const [isOpen, setIsOpen] = React.useState(false)
     const isLogged = true
@@ -62,7 +64,7 @@ const Navbar = () => {
 
     return (
         <header className='w-full fixed top-0 left-0  z-[100] bg-white shadow-[0_8px_30px_rgb(0,0,0,0.12)]' >
-
+            {/* <Nothin/> */}
             <nav className='nav container md:mx-auto border-[2px] border-gray-200 my-2 '>
                 {/* Desktop nav */}
 

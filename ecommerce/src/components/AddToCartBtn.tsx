@@ -1,6 +1,6 @@
 'use client'
 import { addToCartDb } from '@/actions/cart.action';
-import { add } from '@/store/cartSlice';
+
 import { Schema } from 'mongoose';
 import { useRouter } from 'next/navigation';
 import React from 'react'
@@ -16,7 +16,7 @@ const AddToCartBtn = ({ product }: any) => {
         if (!auth.isAuthenticated) return router.push('/login')
         const addProductToDatabase = await addToCartDb(auth.user._id, _id)
         console.log(addProductToDatabase)
-        dispatch(add({ id: id, title: title, price: price, image: image }))
+        // dispatch(add({ id: id, title: title, price: price, image: image }))
     }
     return (
         <button className='bg-black text-white rounded-lg p-2 mt-4' onClick={() => addToCart(product.id, product.title, product.price, product.image, product._id)}>ADD TO CART</button>

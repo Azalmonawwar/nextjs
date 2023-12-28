@@ -1,54 +1,58 @@
-// cart slice for redux toolkit with quantity and total price
-"use client"
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+'use client'
+import {createSlice} from '@reduxjs/toolkit'
 
-interface CartState {
-  items: { [key: string]: { id: string; title: string; price: number; quantity: number ,image:string} };
-  totalPrice: number;
+type ICart = {
+    items: Array<any>,
+    totalQuantity: number,
+    changed: boolean,
+    }
+const initialState :ICart= {
+  items: [],
+  totalQuantity: 0,
+  changed: false,
 }
-
-const ISSERVER = typeof window === "undefined";
-let cart;
-if(!ISSERVER){
-    cart = localStorage.getItem('cart');
-}
-const initialState:CartState = cart ? JSON.parse(cart) : { items: {}, totalPrice: 0 };
-
-
-
 
 const cartSlice = createSlice({
-    name: 'cart',
-    initialState,
-    reducers: {
-        add(state, action: PayloadAction<{ id: string; title: string; price: number;image:string; }>) {
-
-            const { id, title, price,image } = action.payload;
-            if (state.items[id]) {
-                state.items[id].quantity++;
-            } else {
-                state.items[id] = { id, title, price, quantity: 1 ,image};
-            }
-            state.totalPrice += price;
-
-            //also add this to local storage
-            localStorage.setItem('cart', JSON.stringify(state));
-        },
-        remove(state, action: PayloadAction<{ id: string; price: number }>) {
-        const { id, price } = action.payload;
-        if (state.items[id].quantity === 1) {
-            delete state.items[id];
-        } else {
-            state.items[id].quantity--;
-        }
-        state.totalPrice -= price;
-        //also remove this from local storage
-        localStorage.setItem('cart', JSON.stringify(state));
-        }
-        
-        
+  name: 'cart',
+  initialState,
+  reducers: {
+    replaceCart(state, action) {
+      state.totalQuantity = action.payload.totalQuantity
+      state.items = action.payload.items
     },
-    
-});
-export const { add, remove } = cartSlice.actions;
-export default cartSlice.reducer;
+    addItemToCart(state, action) {
+      const newItem = action.payload
+      const existingItem = state.items.find((item) => item.id === newItem.id)
+      state.totalQuantity++
+      state.changed = true
+      if (!existingItem) {
+        state.items.push({
+          id: newItem.id,
+          price: newItem.price,
+          quantity: 1,
+          totalPrice: newItem.price,
+          title: newItem.title,
+          image: newItem.image,
+        })
+      } else {
+        existingItem.quantity++
+        existingItem.totalPrice = existingItem.totalPrice + newItem.price
+      }
+    },
+    removeItemFromCart(state, action) {
+      const id = action.payload
+      const existingItem = state.items.find((item) => item.id === id)
+      state.totalQuantity--
+      state.changed = true
+      if (existingItem.quantity === 1) {
+        state.items = state.items.filter((item) => item.id !== id)
+      } else {
+        existingItem.quantity--
+        existingItem.totalPrice = existingItem.totalPrice - existingItem.price
+      }
+    },
+  },
+})
+
+export const {addItemToCart,removeItemFromCart} = cartSlice.actions
+export default cartSlice.reducer

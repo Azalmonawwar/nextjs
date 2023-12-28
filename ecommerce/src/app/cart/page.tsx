@@ -5,6 +5,7 @@ import React from 'react'
 import { useSelector } from 'react-redux';
 import Link from 'next/link';
 import { getCart } from '@/actions/cart.action';
+import { getDataById } from '@/actions/getData';
 
 type Data = {
     _id: string,
@@ -42,9 +43,11 @@ const Cart = () => {
     React.useEffect(() => {
         //if user is authenticated then get the cart data from the server
         if (auth.isAuthenticated) {
-            getCart(auth.user._id).then((res) => {
-                setData(res?.cart?.products)
+            getDataById('B07GZSVXM2').then((res) => {
                 console.log(res)
+                getCart(auth?.user?._id).then((res) => {
+                    setData(res?.cart?.products)
+                })  
             })
         }
 
