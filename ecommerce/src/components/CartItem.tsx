@@ -8,21 +8,21 @@ const CartItem = ({ product, item, auth }: any) => {
 
 
     //setting product title to limit the length of the title in 30 characters
-    const title = product.title.length > 30 ? product.title.slice(0, 30) + '...' : product.title;
+    // const title = product.title.length > 30 ? product.title.slice(0, 30) + '...' : product.title;
 
 
 
     const handleIncrement = async () => {
         if (quantity === 10) return;
         setQuantity((prev: any) => prev + 1)
-        const data = await addToCartDb(auth, product._id)
+        const data = await addToCartDb(auth, product?._id)
         // console.log(data)
     };
 
 
     const handleDecrement = async () => {
         setQuantity((prev: any) => prev - 1)
-        const data = await removeFromCart(auth, product._id);
+        const data = await removeFromCart(auth, product?._id);
     };
 
 
@@ -39,9 +39,9 @@ const CartItem = ({ product, item, auth }: any) => {
     return (
         <div className="justify-between mb-6 rounded-lg bg-white p-6 shadow-md sm:flex sm:justify-start">
             <div className='flex gap-4'>
-                <Link href={`/product/${product.id}`}><Image src={product.image} alt={product.id} width={200} height={200} className=" rounded-lg object-cover sm:w-20 md:w-40" /></Link>
+                <Link href={`/product/${product?.id}`}><Image src={product?.image} alt={product?.id} width={200} height={200} className=" rounded-lg object-cover sm:w-20 md:w-40" /></Link>
                 <div className="mt-5 sm:mt-0">
-                    <h2 className="text-lg font-bold text-gray-900">{title}</h2>
+                    <h2 className="text-lg font-bold text-gray-900">{product?.title}</h2>
                 </div>
             </div>
             <div className="ml-auto">
@@ -52,8 +52,8 @@ const CartItem = ({ product, item, auth }: any) => {
                         <span className="cursor-pointer rounded-r bg-gray-100 py-1 px-3 duration-100 hover:bg-blue-500 hover:text-blue-50" onClick={() => handleIncrement()}> + </span>
                     </div>
                     <div className="flex items-center space-x-4">
-                        <p className="text-sm">₹ {product.price * quantity}</p>
-                        <svg onClick={() => deleteItem(product.id, product.price)} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="h-5 w-5 cursor-pointer duration-150 hover:text-red-500">
+                        <p className="text-sm">₹ {product?.price * quantity}</p>
+                        <svg onClick={() => deleteItem(product?.id, product?.price)} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="h-5 w-5 cursor-pointer duration-150 hover:text-red-500">
                             <path d="M6 18L18 6M6 6l12 12" />
                         </svg>
                     </div>

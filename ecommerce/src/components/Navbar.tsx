@@ -10,7 +10,28 @@ import { getUser } from '@/actions/user.action'
 const robotoc = Roboto_Condensed({ weight: ['700'], subsets: ['latin'] })
 
 
-const menuItems = ['home', 'men', 'women', 'kids', 'accessories',]
+const menuItems = [
+    {
+        title:'home',
+        link:'/'
+    },
+    {
+        title:'men',
+        link:'/men'
+    },
+    {
+        title:'women',
+        link:'/women'
+    },
+    {
+        title:'kids',
+        link:'/kids'
+    },
+    {
+        title:'accessories',
+        link:'/accessories'
+    }
+]
 
 const Navbar = () => {
     const [length, setLen] = React.useState(0)
@@ -50,7 +71,7 @@ const Navbar = () => {
                         {
                             menuItems.map((item, index) => {
                                 return (
-                                    <li key={index} className='capitalize text-sm hover:text-blue-300 transition font-semibold'><Link href={`/${item}`}>{item}</Link></li>
+                                    <li key={index} className='capitalize text-sm hover:text-blue-300 transition font-semibold'><Link href={`${item.link}`}>{item.title}</Link></li>
                                 )
                             })
                         }
@@ -107,7 +128,7 @@ const Navbar = () => {
                             {
                                 menuItems.map((item, index) => {
                                     return (
-                                        <li key={index} className='flex items-center justify-between py-3 capitalize'><Link href={`/${item}`}>{item}</Link> <Image src={'/next.png'} width={12} height={12} alt='next' /> </li>
+                                        <li key={index} className='flex items-center justify-between py-3 capitalize'><Link href={`${item.link}`}>{item.title}</Link> <Image src={'/next.png'} width={12} height={12} alt='next' /> </li>
                                     )
                                 }
                                 )

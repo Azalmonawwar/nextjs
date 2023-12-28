@@ -30,7 +30,6 @@ const productSchema = new Schema<Product>(
     },
     rating: {
       type: Number,
-      required: true,
       trim: true,
     },
     image: {
@@ -50,6 +49,7 @@ const productSchema = new Schema<Product>(
     },
   },{
     versionKey: false,
+    timestamps:true,
   }
 );
 const Product = models.Product || model<Product>('Product', productSchema);
