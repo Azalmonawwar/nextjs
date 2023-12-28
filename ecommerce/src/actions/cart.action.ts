@@ -2,7 +2,7 @@
 import Cart from "@/models/cart.model";
 import { connectToDatabase } from "@/db/dbConnect";
 import { Schema } from "mongoose";
-
+import { revalidatePath } from "next/cache";
 //function to add product to cart
 
 export async function addToCartDb(
@@ -76,6 +76,7 @@ export async function getCart(userId: Schema.Types.ObjectId) {
       select: "_id title price image id",
       }).exec();
 
+      revalidatePath('/cart')
     //"products.product",
     //"_id title price image id"
 

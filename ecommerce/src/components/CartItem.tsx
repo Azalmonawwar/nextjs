@@ -8,7 +8,7 @@ const CartItem = ({ product, item, auth }: any) => {
 
 
     //setting product title to limit the length of the title in 30 characters
-    // const title = product.title.length > 30 ? product.title.slice(0, 30) + '...' : product.title;
+    const title = product?.title?.length > 30 ? product?.title?.slice(0, 30) + '...' : product?.title;
 
 
 
@@ -41,7 +41,7 @@ const CartItem = ({ product, item, auth }: any) => {
             <div className='flex gap-4'>
                 <Link href={`/product/${product?.id}`}><Image src={product?.image} alt={product?.id} width={200} height={200} className=" rounded-lg object-cover sm:w-20 md:w-40" /></Link>
                 <div className="mt-5 sm:mt-0">
-                    <h2 className="text-lg font-bold text-gray-900">{product?.title}</h2>
+                    <h2 className="text-lg font-bold text-gray-900">{title}</h2>
                 </div>
             </div>
             <div className="ml-auto">
