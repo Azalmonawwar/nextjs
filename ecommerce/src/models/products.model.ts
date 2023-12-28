@@ -50,9 +50,7 @@ const productSchema = new Schema<Product>(
       required: true,
       trim: true,
     },
-  },
-  {
-    timestamps: true,
+  },{
     versionKey: false,
   }
 );
