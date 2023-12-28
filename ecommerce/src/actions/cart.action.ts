@@ -70,7 +70,11 @@ export async function getCart(userId: Schema.Types.ObjectId) {
       path: "user",
       model: "User",
       select: "_id fullName email",
-    });
+    }).populate({
+      path: "products.product",
+      model: "Product",
+      select: "_id title price image id",
+      }).exec();
 
     //"products.product",
     //"_id title price image id"

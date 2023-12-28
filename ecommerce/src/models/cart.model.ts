@@ -38,6 +38,6 @@ const cartSchema = new Schema<ICart>({
     versionKey: false
 })
 
-const Cart =  models.Cart || model<ICart>("Cart", cartSchema);
+const Cart =  models.Cart || model<ICart>('Cart', cartSchema);
 
 export default Cart;

@@ -56,6 +56,6 @@ const productSchema = new Schema<Product>(
     versionKey: false,
   }
 );
-const Product = models.Product || model<Product>("Product", productSchema);
+const Product = models.Product || model<Product>('Product', productSchema);
 
 export default Product;
