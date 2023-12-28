@@ -47,6 +47,7 @@ const Navbar = () => {
 
     React.useEffect(() => {
         getCart(auth?.user?._id).then((res) => {
+            console.log(res)
             setLen(res?.cart?.products?.length)
         })
     }, [auth, length])
