@@ -66,10 +66,11 @@ export async function getCart(userId: Schema.Types.ObjectId) {
     await connectToDatabase();
 
     //find cart of user
-    const cart = await Cart.findOne({ user: userId }).populate(
-      "products.product",
-      "_id title price image id"
-    );
+    const cart = await Cart.findOne({ user: userId }).populate({
+      path: "products.product",
+      select: "",
+    }); //"products.product",
+    //"_id title price image id"
 
     //if cart exists, send cart
     if (cart) {

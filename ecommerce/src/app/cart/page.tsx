@@ -13,7 +13,10 @@ type Data = {
         _id: string,
         title: string,
         price: number,
-        image: string
+        image: string,
+        category: string,
+        department: string,
+        rating: number,
     },
     quantity: number
 }
@@ -30,7 +33,10 @@ const Cart = () => {
                 _id: '',
                 title: '',
                 price: 0,
-                image: '/user.png'
+                image: '/user.png',
+                category: '',
+                department: '',
+                rating: 0,
             },
             quantity: 0
         }
@@ -42,6 +48,7 @@ const Cart = () => {
         if (auth.isAuthenticated) {
             getCart(auth.user._id).then((res) => {
                 setData(res?.cart?.products)
+                console.log(res?.cart?.products)
             })
         }
 

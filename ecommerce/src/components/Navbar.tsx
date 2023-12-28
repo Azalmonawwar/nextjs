@@ -22,15 +22,13 @@ const Navbar = () => {
         getUser().then((res) => {
             dispatch(login({ fullName: res?.user?.fullName, email: res?.user?.email, _id: res?.user?._id, isAdmin: res?.user?.isAdmin }))
         })
-        if (auth.isAuthenticated) {
-            getCart(auth?.user?._id).then((res) => {
-                setLen(res?.cart?.products?.length)
-            })
-        }
     }, [])
 
-
-
+    React.useEffect(() => {
+        getCart(auth?.user?._id).then((res) => {
+            setLen(res?.cart?.products?.length)
+        })
+    }, [auth, length])
 
     //state to toggle the menu
     const [isOpen, setIsOpen] = React.useState(false)
