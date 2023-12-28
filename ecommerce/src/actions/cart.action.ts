@@ -66,17 +66,11 @@ export async function getCart(userId: Schema.Types.ObjectId) {
     await connectToDatabase();
 
     //find cart of user and get products of cart using aggregate
-    const cart = await Cart.findOne({ user: userId })
-      .populate({
-        path: "user",
-        model: "User",
-        select: "_id fullName email",
-      })
-      .populate({
-        path: "products.product",
-        model: "Product",
-        select: "_id title price image id",
-      });
+    const cart = await Cart.findOne({ user: userId }).populate({
+      path: "user",
+      model: "User",
+      select: "_id fullName email",
+    });
 
     //"products.product",
     //"_id title price image id"
