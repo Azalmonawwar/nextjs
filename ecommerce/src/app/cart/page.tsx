@@ -43,8 +43,8 @@ const Cart = () => {
         //if user is authenticated then get the cart data from the server
         if (auth.isAuthenticated) {
             getCart(auth.user._id).then((res) => {
-                setData(res?.cart?.products)
-                console.log(res?.cart?.products)
+                // setData(res?.cart?.products)
+                console.log(res)
             })
         }
 
