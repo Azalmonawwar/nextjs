@@ -1,9 +1,13 @@
-// 'use client';
-import React from 'react'
+'use client';
+import React, { useState } from 'react'
 import CartItem from './CartItem';
 import Link from 'next/link';
 
 const Cart = ({data,total,id}:any) => {
+    const [cart,setCart] = useState<any>([])
+    React.useEffect(() => {
+        setCart(data)
+    },[data])
     const shipping = total > 500 ? 0 : 50;
   return (
     <div className="h-auto bg-gray-100 pt-20">
@@ -11,7 +15,7 @@ const Cart = ({data,total,id}:any) => {
                 <div className="mx-auto max-w-5xl  justify-center px-6 md:flex md:space-x-6 xl:px-0">
                     <div className="rounded-lg md:w-2/3 h-auto">
                         {
-                            id && data?.length >= 1 ? data.map((product: any) => {
+                            id && cart?.length >= 1 ? cart.map((product: any) => {
                                 return (
                                     <CartItem key={product._id} product={product.product} item={product.quantity} auth={id} />
                                 )
@@ -28,7 +32,7 @@ const Cart = ({data,total,id}:any) => {
                         }
                     </div>
                     {
-                        data?.length >= 1 &&
+                        cart?.length >= 1 &&
                         <div className="mt-6 h-full rounded-lg border bg-white p-6 shadow-md md:mt-0 md:w-1/3">
                             <div className="mb-2 flex justify-between">
                                 <p className="text-gray-700">Subtotal</p>

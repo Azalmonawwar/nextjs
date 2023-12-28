@@ -19,7 +19,7 @@ type Data = {
     },
     quantity: number
 }
-type Datas = Data[]
+
 const CartPage =async () => {
     const user = await getUser()
     const id = user?.user?._id

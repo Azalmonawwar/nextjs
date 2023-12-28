@@ -67,20 +67,16 @@ export async function getCart(userId: Schema.Types.ObjectId) {
 
     //find cart of user and get products of cart using aggregate
     const cart = await Cart.findOne({ user: userId }).populate({
-      path: "user",
-      model: "User",
-      select: "_id fullName email",
-    }).populate({
       path: "products.product",
       model: "Product",
       select: "_id title price image id",
-      }).exec();
+      });
 
+      //"products.product",
+      //"_id title price image id"
+      
+      //if cart exists, send cart
       revalidatePath('/cart')
-    //"products.product",
-    //"_id title price image id"
-
-    //if cart exists, send cart
     if (cart) {
       const response = {
         message: "Cart found.",
