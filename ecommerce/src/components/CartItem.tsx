@@ -1,21 +1,36 @@
 'use client'
-import { addToCartDb, removeFromCart } from '@/actions/cart.action';
+import { addToCartDb, getCart, removeFromCart, removeProductFromCart } from '@/actions/cart.action';
 import Image from 'next/image';
 import Link from 'next/link';
 import React, { useEffect } from 'react'
-const CartItem = ({ product, item, auth }: any) => {
+import { useRouter } from 'next/navigation';
+import { useDispatch } from 'react-redux';
+import { addToCart, remove, removeItem,initCart } from '@/store/cartSlice';
+import { getDataById } from '@/actions/getData';
+
+
+const CartItem = ({ product,cartI, item, auth }: any) => {
+    const router = useRouter();
+    const dispatch = useDispatch();
     const [quantity, setQuantity] = React.useState(item);
 
 
     //setting product title to limit the length of the title in 30 characters
     const title = product?.title?.length > 30 ? product?.title?.slice(0, 30) + '...' : product?.title;
 
-
+    console.log(cartI)
 
     const handleIncrement = async () => {
         if (quantity === 10) return;
         setQuantity((prev: any) => prev + 1)
         const data = await addToCartDb(auth, product?._id)
+        dispatch(addToCart(cartI))
+        
+            // getCart(auth?.user?._id).then((res) => {
+            //     dispatch(initCart(res?.cart?.products))
+            // })  
+        
+        router.refresh()
         // console.log(data)
     };
 
@@ -23,12 +38,21 @@ const CartItem = ({ product, item, auth }: any) => {
     const handleDecrement = async () => {
         setQuantity((prev: any) => prev - 1)
         const data = await removeFromCart(auth, product?._id);
+        dispatch(remove(cartI))
+        
+            // getCart(auth?.user?._id).then((res) => {
+            //     dispatch(initCart(res?.cart?.products))
+            // })  
+       
+        router.refresh()
     };
 
 
 
     //function to delete item from cart   i will do this later
-    const deleteItem = (id: string, price: number) => {
+    const deleteItem =async () => {
+        const data = await removeProductFromCart(auth,product?._id);
+        dispatch(removeItem(cartI))
     }
 
 
@@ -53,15 +77,13 @@ const CartItem = ({ product, item, auth }: any) => {
                     </div>
                     <div className="flex items-center space-x-4">
                         <p className="text-sm">₹ {product?.price * quantity}</p>
-                        <svg onClick={() => deleteItem(product?.id, product?.price)} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="h-5 w-5 cursor-pointer duration-150 hover:text-red-500">
+                        <svg onClick={() => deleteItem()} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="h-5 w-5 cursor-pointer duration-150 hover:text-red-500">
                             <path d="M6 18L18 6M6 6l12 12" />
                         </svg>
                     </div>
                 </div>
             </div>
         </div>
-
-
     )
 }
 

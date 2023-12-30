@@ -6,6 +6,7 @@ import Footer from '../components/Footer'
 import NextTopLoader from 'nextjs-toploader';
 import { Providers } from '@/store/provider';
 import { Toaster } from 'react-hot-toast';
+import QueryProviders from '@/components/QueryProviders'
 
 const poppins = Poppins({ weight: ['200', '300', '400', '500', '600', '700'], subsets: ['latin'] })
 
@@ -23,6 +24,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <QueryProviders>
       <body className={poppins.className}>
         <NextTopLoader
           color='#000000' />
@@ -39,6 +41,7 @@ export default function RootLayout({
           <Footer />
         </Providers>
       </body>
+      </QueryProviders>
     </html>
   )
 }

@@ -149,3 +149,52 @@ export async function removeFromCart(
     return { error: error.message };
   }
 }
+
+//function to remove product from cart
+export async function removeProductFromCart(
+  userId: Schema.Types.ObjectId,
+  productId: Schema.Types.ObjectId
+) {
+  try {
+    //connect to database
+    await connectToDatabase();
+
+    //find cart of user
+    const cart = await Cart.findOne({ user: userId });
+
+    //if cart exists
+    if (cart) {
+      //check if product exists in cart
+      const product = cart.products.find(
+        (product: any) => product.product == productId
+      );
+
+      //if product exists in cart
+      if (product) {
+        //remove product from cart
+        await Cart.findOneAndUpdate(
+          { _id: cart._id },
+          {
+            $pull: {
+              products: {
+                product: productId,
+              },
+            },
+          }
+        );
+      } else {
+        //if product does not exist in cart, send error response
+        return { error: "Product not found in cart." };
+      }
+    } else {
+      //if cart does not exist, send error response
+      return { error: "Cart not found." };
+    }
+
+    //send response
+    return { message: "Product removed from cart." };
+  } catch (error: any) {
+    //if error, send error response
+    return { error: error.message };
+  }
+}

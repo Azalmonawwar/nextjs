@@ -7,7 +7,7 @@ import { Roboto_Condensed } from 'next/font/google'
 import { login } from '@/store/authSlice'
 import { getCart } from '@/actions/cart.action'
 import { getUser } from '@/actions/user.action'
-import Nothin from './Nothin'
+import { initCart } from '@/store/cartSlice'
 const robotoc = Roboto_Condensed({ weight: ['700'], subsets: ['latin'] })
 
 
@@ -35,9 +35,7 @@ const menuItems = [
 ]
 
 const Navbar = () => {
-    const [length, setLen] = React.useState(0)
     const auth = useSelector((state: any) => state.auth)
-    // const cart = useSelector((state: any) => state.cart)
     const dispatch = useDispatch()
 
     // getting cart length and user details from the server
@@ -47,13 +45,7 @@ const Navbar = () => {
         })
     }, [])
 
-    React.useEffect(() => {
-        getCart(auth?.user?._id).then((res) => {
-            // console.log(res)
-            setLen(res?.cart?.products?.length)
-        })
-    }, [auth, length])
-    // console.log(cart)
+
     //state to toggle the menu
     const [isOpen, setIsOpen] = React.useState(false)
     const isLogged = true
@@ -90,7 +82,7 @@ const Navbar = () => {
 
                         <Link href={'/cart'} className='icons relative'>
                             <Image src={'/cart.png'} width={20} height={20} alt='cart' />
-                            <div className='absolute top-0 right-0 bg-red-500 text-white text-[10px] px-1 rounded-full'>{length}</div>
+                            
                             <p >Cart</p>
                         </Link>
 

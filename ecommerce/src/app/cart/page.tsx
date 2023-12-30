@@ -2,43 +2,20 @@
 import CartItem from '@/components/CartItem';
 import Wrapper from '@/components/Wrapper'
 import React from 'react'
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Link from 'next/link';
 import { getCart } from '@/actions/cart.action';
 import { getDataById } from '@/actions/getData';
+import { initCart } from '@/store/cartSlice';
 
-type Data = {
-    _id: string,
-    product: {
-        id: string,
-        _id: string,
-        title: string,
-        price: number,
-        image: string,
-
-    },
-    quantity: number
-}
-type Datas = Data[]
 const Cart = () => {
+    
+
     const auth = useSelector((state: any) => state.auth);
-
+    const cart = useSelector((state: any) => state.cart);
     //state to store cart data
-    const [data, setData] = React.useState<Datas>([
-        {
-            _id: '',
-            product: {
-                id: '',
-                _id: '',
-                title: '',
-                price: 0,
-                image: '/user.png',
-
-            },
-            quantity: 0
-        }
-    ])
-
+    const [data, setData] = React.useState<any>([])
+    const dispatch = useDispatch()
 
     React.useEffect(() => {
         //if user is authenticated then get the cart data from the server
@@ -47,25 +24,17 @@ const Cart = () => {
                 // console.log(res)
                 getCart(auth?.user?._id).then((res) => {
                     setData(res?.cart?.products)
+                    dispatch(initCart(res?.cart?.products))
                 })  
             })
         }
 
-    }, [auth.isAuthenticated, auth.user._id])
+    }, [auth.isAuthenticated,data])
 
     //getting user id
-    const id = auth.user._id
+    const id = auth.user._id    
 
-    //function to calculate total price 
-    const totalPrice = () => {
-        let total = 0;
-        data?.forEach((item: any) => {
-            total += item?.product?.price * item.quantity;
-        });
-        return total;
-    };
-    const total = totalPrice();
-
+    const total = cart.totalPrice;
     //calculating shipping charges
     const shipping = total > 500 ? 0 : 50;
 
@@ -76,15 +45,15 @@ const Cart = () => {
                 <div className="mx-auto max-w-5xl  justify-center px-6 md:flex md:space-x-6 xl:px-0">
                     <div className="rounded-lg md:w-2/3 h-auto">
                         {
-                            auth.isAuthenticated && data?.length >= 1 ? data.map((product: any) => {
+                            auth.isAuthenticated && cart?.cartItems?.length >= 1 ? data.map((product: any) => {
                                 return (
-                                    <CartItem key={product._id} product={product.product} item={product.quantity} auth={id} />
+                                    <CartItem key={product._id} product={product.product} cartI={product} item={product.quantity} auth={id} />
                                 )
                             }) :
-                                <h1 className="text-2xl font-bold h-[400px]">Cart is Empty</h1>
+                                <h1 className="text-2xl font-bold ">Cart is Empty</h1>
                         }
                         {
-                            !auth.isAuthenticated &&
+                            auth.user.fullName ===undefined &&
                             <div className="flex gap-4 items-center">
                                 <h1 className="text-2xl font-bold">Login to see your cart</h1>
                                 <Link className="px-2 py-2 md:px-4 md:py-2 md:text-base text-sm  bg-black text-white rounded-md " href={"/login"}>Login</Link>
