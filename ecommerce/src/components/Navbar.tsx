@@ -38,7 +38,7 @@ const Navbar = () => {
     const auth = useSelector((state: any) => state.auth)
     const dispatch = useDispatch()
 
-    // getting cart length and user details from the server
+    
     React.useEffect(() => {
         getUser().then((res) => {
             dispatch(login({ fullName: res?.user?.fullName, email: res?.user?.email, _id: res?.user?._id, isAdmin: res?.user?.isAdmin }))
@@ -103,7 +103,7 @@ const Navbar = () => {
                     <Image src={'/search1.png'} width={20} height={20} alt={'user'} />
                     <Link href={'/profile'}><Image src={'/user.png'} width={20} height={20} alt={'user'} /></Link>
                     <Link href={'/cart'}><Image src={'/cart.png'} width={20} height={20} alt={'cart'} /></Link>
-                    <div className='absolute top-0 right-0 bg-red-500 text-white text-[10px] px-1 rounded-full'>{length}</div>
+                    
                 </div>
                 {/* sidemenu */}
                 {
