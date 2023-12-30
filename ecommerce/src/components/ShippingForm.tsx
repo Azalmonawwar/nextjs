@@ -1,18 +1,22 @@
 'use client'
 
+import { createShipping } from "@/actions/shipping.action";
 import { shippingAddressSchema } from "@/formSchema/schema";
 import { yupResolver } from "@hookform/resolvers/yup";
+import React, { use } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
+import toast from "react-hot-toast";
+import { useSelector } from "react-redux";
 
 
 type Inputs = {
     name: string,
-    email: string,
     address: string,
     city: string,
     state: string,
     pincode: string,
-    phone: string
+    phone: string,
+    district: string
 }
 const ShippingForm = () => {
     const { register, handleSubmit, reset, formState: { errors }, } = useForm<Inputs>({
@@ -22,10 +26,15 @@ const ShippingForm = () => {
         },
     });
 
+    const auth = useSelector((state: any) => state.auth)
+    const id = auth?.user?._id
+    console.log(id)
     //on submiting form
     const onSubmit: SubmitHandler<Inputs> = async (data) => {
-        console.log(data)
-        // reset()
+        const response = await createShipping(data,id)
+        toast.success(response.message)
+        console.log(data,response)
+        reset()
     }
     return (
         <form>
@@ -42,19 +51,7 @@ const ShippingForm = () => {
                 />
                 {errors.name && <p className="text-red-500 text-xs italic">{errors.name.message}</p>}
             </div>
-            <div className="mb-4">
-                <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="email">
-                    Email
-                </label>
-                <input
-                    className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                    id="email"
-                    type="email"
-                    placeholder="Enter your Email"
-                    {...register("email")}
-                />
-                {errors.email && <p className="text-red-500 text-xs italic">{errors.email.message}</p>}
-            </div>
+            
             <div className="mb-4">
                 <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="address">
                     Address
@@ -81,6 +78,19 @@ const ShippingForm = () => {
                     {...register("city")}
                 />
                 {errors.city && <p className="text-red-500 text-xs italic">{errors.city.message}</p>}
+            </div>
+            <div className="mb-4">
+                <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="city">
+                    District
+                </label>
+                <input
+                    className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    id="city"
+                    type="text"
+                    placeholder="Enter your City"
+                    {...register("district")}
+                />
+                {errors.district && <p className="text-red-500 text-xs italic">{errors.district.message}</p>}
             </div>
             <div className='flex gap-4'>
                 <div className="mb-4 w-1/2">

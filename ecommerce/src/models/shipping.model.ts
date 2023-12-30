@@ -12,6 +12,7 @@ interface IShipping extends Document {
     district: string;
     phone: string;
     name: string;
+    
 }
 
 

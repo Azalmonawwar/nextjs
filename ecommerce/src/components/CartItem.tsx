@@ -18,7 +18,6 @@ const CartItem = ({ product,cartI, item, auth }: any) => {
     //setting product title to limit the length of the title in 30 characters
     const title = product?.title?.length > 30 ? product?.title?.slice(0, 30) + '...' : product?.title;
 
-    console.log(cartI)
 
     const handleIncrement = async () => {
         if (quantity === 10) return;

@@ -1,13 +1,12 @@
 'use client'
 import Image from 'next/image'
 import Link from 'next/link'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import React from 'react'
 import { Roboto_Condensed } from 'next/font/google'
 import { login } from '@/store/authSlice'
-import { getCart } from '@/actions/cart.action'
 import { getUser } from '@/actions/user.action'
-import { initCart } from '@/store/cartSlice'
+
 const robotoc = Roboto_Condensed({ weight: ['700'], subsets: ['latin'] })
 
 
@@ -35,9 +34,7 @@ const menuItems = [
 ]
 
 const Navbar = () => {
-    const auth = useSelector((state: any) => state.auth)
     const dispatch = useDispatch()
-
     
     React.useEffect(() => {
         getUser().then((res) => {

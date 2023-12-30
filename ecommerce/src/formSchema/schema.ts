@@ -45,9 +45,6 @@ export const shippingAddressSchema = yup
     name: yup.string().required(
         "Name is required"
     ).min(3),
-    email: yup.string().required(
-        "Email is required"
-    ),
     phone: yup.string().required(
         "Phone is required"
     ).min(10).max(10),
@@ -63,4 +60,7 @@ export const shippingAddressSchema = yup
     pincode: yup.string().required(
         "Pincode is required"
     ).min(6).max(6),
+    district: yup.string().required(
+        "District is required"
+    ).min(3),
 })

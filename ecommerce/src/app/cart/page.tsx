@@ -29,7 +29,7 @@ const Cart = () => {
             })
         }
 
-    }, [auth.isAuthenticated,data])
+    }, [auth.isAuthenticated])
 
     //getting user id
     const id = auth.user._id    
@@ -63,7 +63,7 @@ const Cart = () => {
                     </div>
                     {
                         data?.length >= 1 &&
-                        <div className="mt-6 h-full rounded-lg border bg-white p-6 shadow-md md:mt-0 md:w-1/3">
+                        <div className="mt-6 h-full rounded-lg border bg-white p-6 shadow-md md:mt-0 md:w-1/3 flex flex-col">
                             <div className="mb-2 flex justify-between">
                                 <p className="text-gray-700">Subtotal</p>
                                 <p className="text-gray-700">₹ {total}</p>
@@ -80,7 +80,7 @@ const Cart = () => {
                                     <p className="text-sm text-gray-700">including Taxes</p>
                                 </div>
                             </div>
-                            <button className="mt-6 w-full rounded-md bg-black py-1.5 font-medium text-white hover:bg-gray-900">Check out</button>
+                            <Link href={'/checkout'} className="mt-6 w-full rounded-md text-center py-2 bg-black  font-medium text-white hover:bg-gray-900">Check out</Link>
                         </div>
                     }
                 </div>
