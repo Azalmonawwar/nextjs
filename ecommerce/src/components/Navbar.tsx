@@ -6,6 +6,8 @@ import React from 'react'
 import { Roboto_Condensed } from 'next/font/google'
 import { login } from '@/store/authSlice'
 import { getUser } from '@/actions/user.action'
+import { useForm } from 'react-hook-form'
+import { useRouter } from 'next/navigation'
 
 const robotoc = Roboto_Condensed({ weight: ['700'], subsets: ['latin'] })
 
@@ -34,6 +36,17 @@ const menuItems = [
 ]
 
 const Navbar = () => {
+    const { register, handleSubmit, reset, formState: { errors }, } = useForm({
+        defaultValues: {
+            search: '',
+        },
+    });
+    const router = useRouter()
+    const onSubmit = (data:any) => {
+        const search = data.search.replace(/\s+/g, '-').toLowerCase()
+        router.push(`/search/${search}`)
+        reset()
+    }
     const dispatch = useDispatch()
     
     React.useEffect(() => {
@@ -45,6 +58,7 @@ const Navbar = () => {
 
     //state to toggle the menu
     const [isOpen, setIsOpen] = React.useState(false)
+    const [isInput, setIsInput] = React.useState(false)
     const isLogged = true
     const toggleMenu = () => {
         setIsOpen(!isOpen)
@@ -71,8 +85,10 @@ const Navbar = () => {
                 </div>
                 <div className='md:flex hidden gap-4 '>
                     <div className='relative '>
-                        <input type="text" placeholder='Search for product,brand and more' className='p-2 text-sm w-[300px] md:w-auto lg:w-[350px]   outline-none border-[1px] border-gray-100 bg-gray-200 focus:bg-white transition rounded-md' />
-                        <Image src={'/search1.png'} alt='search' width={18} height={18} className='absolute top-[30%] right-[10px]  ' />
+                        <input type="text" id='search' {...register('search')} placeholder='Search for product,brand and more' className='p-2 text-sm w-[300px] md:w-auto lg:w-[350px]   outline-none border-[1px] border-gray-100 bg-gray-200 focus:bg-white transition rounded-md' />
+                        <button  onClick={handleSubmit(onSubmit)}>
+                            <Image src={'/search1.png'} alt='search' width={18} height={18} className='absolute top-[30%] right-[10px]  ' />
+                            </button>
                     </div>
                     <div className='flex-center gap-4'>
 
@@ -96,8 +112,18 @@ const Navbar = () => {
                     <Image src={'/hamburger.png'} width={24} height={24} className={'w-[20%] md:hidden block z-50'} alt={'menu'} onClick={toggleMenu} />
                     <h1 className={`text-xl font-bold ${robotoc.className} uppercase`}><Link href={'/'}>Lyntra</Link></h1>
                 </div>
+                {
+                // isInput &&
+                //  <div className='fixed z-[100] top-0 left-0 w-full p-4 '>
+                //  <input type="text" id='search' {...register('search')} placeholder='Search for product,brand and more' className='w-full p-2  rounded-md text-white focus:outline-none ' />
+                //  <button  onClick={handleSubmit(onSubmit)}>
+                //             <Image src={'/search1.png'} alt='search' width={18} height={18} className='absolute top-[30%] right-[10px]  ' />
+                // </button>
+                // {/* <div className='w-full h-screen bg-black opacity-40'/> */}
+                // </div>
+                 }
                 <div className='flex-center gap-4 md:hidden relative'>
-                    <Image src={'/search1.png'} width={20} height={20} alt={'user'} />
+                    <Image src={'/search1.png'} width={20} height={20} alt={'search'}  onClick={()=>setIsInput(!isInput)}/>
                     <Link href={'/profile'}><Image src={'/user.png'} width={20} height={20} alt={'user'} /></Link>
                     <Link href={'/cart'}><Image src={'/cart.png'} width={20} height={20} alt={'cart'} /></Link>
                     

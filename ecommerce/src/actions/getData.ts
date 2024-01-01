@@ -80,7 +80,7 @@ export async function getDataByHighestPrice(): Promise<Product[]> {
 
     //getting product by category and department
     const products = await Product.aggregate([
-      { $match: { department: "women" } },
+      { $match: { department: "women", category: "suits" } },
       { $sort: { price: -1 } },
       { $limit: 4 },
     ]);
@@ -138,5 +138,34 @@ export async function getDataByDepartment(): Promise<DepProduct[]> {
       },
     ];
     return empty;
+  }
+}
+
+//get data by search query
+
+export async function getDataBySearchQuery(query: string) {
+  try {
+    await connectToDatabase();
+    const regex = new RegExp(query, "i");
+
+    const matchStage = {
+      $match: {
+        $or: [
+          { title: { $regex: regex } },
+          { department: { $regex: regex } },
+          { category: { $regex: regex } },
+          // ... add other fields you want to search
+        ],
+      },
+    };
+
+    const results = await Product.aggregate([matchStage]);
+    const response = JSON.parse(JSON.stringify(results));
+    return response;
+  } catch (error) {
+    return {
+      statusCode: 500,
+      body: JSON.stringify(error),
+    };
   }
 }
