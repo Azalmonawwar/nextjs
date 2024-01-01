@@ -59,3 +59,23 @@ export async function createShipping(shipping: Inputs, userId: string) {
         return JSON.parse(JSON.stringify(response));
     }
 }
+
+//get shipping details for a user 
+export async function getShipping(userId: string) {
+    try {
+        await connectToDatabase();
+        const shipping = await Shipping.find({user: userId});
+        const response = {
+            status: true,
+            message: "Shipping details fetched successfully",
+            data: shipping
+        }
+        return JSON.parse(JSON.stringify(response));
+    } catch (error:any) {
+        const response = {
+            status: false,
+            message: error.message
+        }
+        return JSON.parse(JSON.stringify(response));
+    }
+}
