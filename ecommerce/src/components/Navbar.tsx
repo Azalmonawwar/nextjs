@@ -1,8 +1,8 @@
 'use client'
 import Image from 'next/image'
 import Link from 'next/link'
-import { useDispatch } from 'react-redux'
-import React from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import React, { use } from 'react'
 import { Roboto_Condensed } from 'next/font/google'
 import { login } from '@/store/authSlice'
 import { getUser } from '@/actions/user.action'
@@ -48,7 +48,7 @@ const Navbar = () => {
         reset()
     }
     const dispatch = useDispatch()
-    
+    const auth = useSelector((state: any) => state.auth)
     React.useEffect(() => {
         getUser().then((res) => {
             dispatch(login({ fullName: res?.user?.fullName, email: res?.user?.email, _id: res?.user?._id, isAdmin: res?.user?.isAdmin }))
@@ -59,11 +59,26 @@ const Navbar = () => {
     //state to toggle the menu
     const [isOpen, setIsOpen] = React.useState(false)
     const [isInput, setIsInput] = React.useState(false)
-    const isLogged = true
     const toggleMenu = () => {
         setIsOpen(!isOpen)
     }
 
+    //logout
+    const logout = async () => {
+        try {
+            const res = await fetch('/api/user/logout', {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            })
+            if (res.ok) {
+                window.location.href = '/login'
+            }
+        } catch (err) {
+            console.error(err)
+        }
+    }
 
     return (
         <header className='w-full fixed top-0 left-0  z-[100] bg-white shadow-[0_8px_30px_rgb(0,0,0,0.12)]' >
@@ -131,12 +146,13 @@ const Navbar = () => {
                 {/* sidemenu */}
                 {
                     isOpen &&
+                    <>
                     <div className='z-40 absolute md:hidden top-0 left-0 py-24 px-5 w-[70%] bg-gray-100 h-screen'>
                         {
-                            isLogged &&
+                            auth?.user?.fullName &&
                             <div className='flex  gap-4 items-center mb-6 '>
-                                <p className=' text-xs whitespace-nowrap'>Azal monawwar</p>
-                                <button className='btn-sm'>
+                                <p className=' text-xs whitespace-nowrap capitalize'>{auth?.user?.fullName}</p>
+                                <button className='btn-sm' onClick={logout}>
                                     Logout
                                 </button>
 
@@ -146,7 +162,7 @@ const Navbar = () => {
                             {
                                 menuItems.map((item, index) => {
                                     return (
-                                        <li key={index} className='flex items-center justify-between py-3 capitalize'><Link href={`${item.link}`}>{item.title}</Link> <Image src={'/next.png'} width={12} height={12} alt='next' /> </li>
+                                        <li key={index} className='flex items-center justify-between py-3 capitalize' onClick={toggleMenu}><Link href={`${item.link}`}>{item.title}</Link> <Image src={'/next.png'} width={12} height={12} alt='next' /> </li>
                                     )
                                 }
                                 )
@@ -154,14 +170,16 @@ const Navbar = () => {
                         </ul>
                         <hr />
                         <div className='flex gap-3 mt-5'>
-                            <button className='btn-sm'>
+                            <Link href={'/signup'} className='btn-sm'>
                                 Sign up
-                            </button>
-                            <button className='btn-sm'>
+                            </Link>
+                            <Link href={'/login'} className='btn-sm'>
                                 Login
-                            </button>
+                            </Link>
                         </div>
                     </div>
+                        <div className='h-[1000px] w-screen bg-black opacity-50 absolute top-0' onClick={toggleMenu}/>
+                            </>
                 }
             </nav>
         </header >

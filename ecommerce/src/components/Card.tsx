@@ -8,7 +8,7 @@ type Card = {
 }
 const Card = ({ href, title, src }: Card) => {
     return (
-        <div className="card-container relative overflow-hidden bg-gray-300 md:w-[33%] flex items-center justify-center w-full">
+        <div className="card-container relative overflow-hidden border-[1px] border-gray-300 md:w-[33%] flex items-center justify-center w-full">
             <Image src={`${src}`} alt={src} height={300} width={300} />
             <div className="overlay absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300">
                 <div className="text-white text-center">

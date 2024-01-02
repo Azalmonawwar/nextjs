@@ -1,6 +1,7 @@
 import React from 'react'
 import Link from 'next/link';
 import Image from 'next/image';
+import Stars from './Stars';
 
 const Product = ({ product }: any) => {
 
@@ -23,8 +24,11 @@ const Product = ({ product }: any) => {
 
 
             <h3 className="mt-4 pl-3 md:text-base text-sm  text-gray-700 font-semibold md:mr-auto">{product.title}</h3>
-            {/* <p className="mt-2 pl-3 text-xs text-gray-400 product-desc overflow-hidden text-ellipsis whitespace-nowrap md:mr-auto"> {product.product_description}</p> */}
-            <p className="mt-1 pl-3 text-lg font-medium text-gray-900 md:mr-auto">₹ {product.price}</p>
+            <p className="mt-1 pl-3 text-sm flex font-light text-gray-900 mr-auto gap-2">
+                <span>{product.rating} </span>
+                <Stars  rating={product.rating} />
+                </p>
+            <p className="mt-1 pl-3 md:text-lg  text-base font-medium text-gray-900 mr-auto">₹ {product.price}</p>
         </Link>
 
     )

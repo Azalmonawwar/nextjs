@@ -9,9 +9,9 @@ const Men = async () => {
     const data = await getData('shirt', 'men');
     return (
         <Wrapper>
-            <div className='my-24'>
+            <div className='md:my-24 my-10'>
                 <h3 className={`text-2xl font-semibold mb-10 text-center md:text-left ${rubik.className}`}>MENS SHOPPING </h3>
-                <div className='grid gap-4 grid-cols-1 md:grid-cols-3 lg:grid-cols-4'>
+                <div className='grid md:gap-4 grid-cols-2 md:grid-cols-3 lg:grid-cols-4'>
                     {
                         data?.map((product: any) => {
                             return (

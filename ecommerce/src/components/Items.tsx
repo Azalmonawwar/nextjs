@@ -2,33 +2,18 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 import Card from './Card'
+import { getDataByManyCategory } from '@/actions/getData'
 
 
-const data = [
-    {
-        href: '/accessories',
-        src: '/purse.png',
-        title: `Designer Purse`,
-    },
-    {
-        href: '/accessories',
-        src: '/watch.png',
-        title: `Designer Watch`,
-    },
-    {
-        href: '/accessories',
-        src: '/shoes.png',
-        title: `Designer Shoes`,
-    },
-]
 
-const Items = () => {
+const Items =async () => {
+    const response= await getDataByManyCategory();
     return (
         <section className='container mx-auto  '>
             <div className='p-4 m-2  flex flex-col md:flex-row gap-3 '>
                 {
-                    data.map((item, index) => (
-                        <Card key={index} href={item.href} src={item.src} title={item.title} />
+                    response?.map((item:any, index:number) => (
+                        <Card key={index} href={`/product/${item.id}`} src={item.image} title={item.title} />
                     ))
                 }
             </div>

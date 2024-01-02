@@ -169,3 +169,68 @@ export async function getDataBySearchQuery(query: string) {
     };
   }
 }
+
+
+//get data by hightest rating
+export async function getDataByHighestRating(){
+  try {
+    await connectToDatabase();
+
+    const products = await Product.aggregate([
+      { $match: { department: "men", category: "shirt" } },
+      { $sort: { rating: -1 } },
+      { $limit: 6 },
+    ]);
+    const response = JSON.parse(JSON.stringify(products));
+    return response;
+  } catch (error) {
+    console.log(error);
+    const empty = [
+      {
+        _id: new mongoose.Types.ObjectId(),
+        id: "",
+        title: "",
+        price: 0,
+        rating: "",
+        category: "",
+        department: "",
+        image: "",
+      },
+    ];
+    return empty;
+    
+  }
+}
+
+
+
+//get data by many category 
+export async function getDataByManyCategory(){
+  try {
+    await connectToDatabase();
+
+    const products = await Product.aggregate([
+      { $match: { category: {$in: ['heels'] },department:"women" },},
+        // { $sort: { rating:  } },
+        { $limit: 3 },
+    ]);
+    const response = JSON.parse(JSON.stringify(products));
+    return response;
+  } catch (error) {
+    console.log(error);
+    const empty = [
+      {
+        _id: new mongoose.Types.ObjectId(),
+        id: "",
+        title: "",
+        price: 0,
+        rating: "",
+        category: "",
+        department: "",
+        image: "",
+      },
+    ];
+    return empty;
+    
+  }
+}
