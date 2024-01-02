@@ -143,25 +143,42 @@ export async function getDataByDepartment(): Promise<DepProduct[]> {
 
 //get data by search query
 
-export async function getDataBySearchQuery(query: string) {
+export async function getDataBySearchQuery(query: string,page: number,limit: number) {
   try {
     await connectToDatabase();
-    const regex = new RegExp(query, "i");
+    const regex = new RegExp(query, 'i');
 
     const matchStage = {
-      $match: {
-        $or: [
-          { title: { $regex: regex } },
-          { department: { $regex: regex } },
-          { category: { $regex: regex } },
-          // ... add other fields you want to search
-        ],
-      },
+        $match: {
+            $or: [
+                { title: { $regex: regex } },
+                { department: { $regex: regex } },
+                { category: { $regex: regex } },
+                // ... add other fields you want to search
+            ],
+        },
     };
 
-    const results = await Product.aggregate([matchStage]);
+
+    const skipStage = {
+        $skip: (page - 1) * limit,
+    };
+
+    const limitStage = {
+        $limit: limit,
+    };
+
+   
+
+    const results = await Product.aggregate([
+        matchStage,
+        skipStage,
+        limitStage,
+    ]);
+
     const response = JSON.parse(JSON.stringify(results));
     return response;
+
   } catch (error) {
     return {
       statusCode: 500,
@@ -170,6 +187,43 @@ export async function getDataBySearchQuery(query: string) {
   }
 }
 
+
+// get length of search query
+export async function getLengthOfSearchQuery(query: string) {
+  try {
+    await connectToDatabase();
+    const regex = new RegExp(query, 'i');
+
+    const matchStage = {
+        $match: {
+            $or: [
+                { title: { $regex: regex } },
+                { department: { $regex: regex } },
+                { category: { $regex: regex } },
+                // ... add other fields you want to search
+            ],
+        },
+    };
+
+    const countStage = {
+        $count: 'count',
+    };
+
+    const results = await Product.aggregate([
+        matchStage,
+        countStage,
+    ]);
+
+    const response = JSON.parse(JSON.stringify(results));
+    return response;
+
+  } catch (error) {
+    return {
+      statusCode: 500,
+      body: JSON.stringify(error),
+    };
+  }
+}
 
 //get data by hightest rating
 export async function getDataByHighestRating(){

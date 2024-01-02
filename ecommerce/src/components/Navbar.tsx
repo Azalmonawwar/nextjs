@@ -44,7 +44,7 @@ const Navbar = () => {
     const router = useRouter()
     const onSubmit = (data:any) => {
         const search = data.search.replace(/\s+/g, '-').toLowerCase()
-        router.push(`/search/${search}`)
+        router.push(`/search/${search}?page=1`)
         reset()
     }
     const dispatch = useDispatch()
