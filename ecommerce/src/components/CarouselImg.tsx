@@ -19,8 +19,9 @@ const CarouselImg = () => {
                     dynamicHeight={true}
                     showArrows={false}
                     emulateTouch={true}
-                    swipeable={true}
+                    swipeable={false}
                     stopOnHover={true}
+                    showIndicators={false}
                     // centerMode={true}
                 >
                     <div className='relative'>

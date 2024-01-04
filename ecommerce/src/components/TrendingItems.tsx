@@ -21,7 +21,7 @@ const TrendingItems = async () => {
                         <h3 className={`${robotoc.className} font-bold text-3xl`}> WE LOVE TREND</h3>
                         <p className='text-sm text-gray-400'>Indulge in the latest trends with our curated collection of must-have items. Stay stylish and on point with these hot, in-demand products.</p>
                     </div>
-                    <div className='grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8 '>
+                    <div className='grid grid-cols-2 md:gap-4 gap-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 '>
                         {products.map((product: any) => (
                             <SmallCard key={product.id} product={product} />
                         ))}
