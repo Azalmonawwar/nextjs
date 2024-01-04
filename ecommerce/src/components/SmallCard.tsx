@@ -2,7 +2,7 @@ import React from 'react'
 import Link from 'next/link';
 import Image from 'next/image';
 const SmallCard = ({ product }: any) => {
-
+    product.title = product.title.length > 20 ? product.title.slice(0, 20) + '...' : product.title
     return (
         <Link href={`/product/${product.id}`} className="border-[1px] border-gray-300">
             <div key={product.id} className=" aspect-h-1 aspect-w-1  overflow-hidden  bg-gray-200 xl:aspect-h-8 xl:aspect-w-7">

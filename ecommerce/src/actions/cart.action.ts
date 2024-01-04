@@ -52,6 +52,7 @@ export async function addToCartDb(
     }
 
     //send response
+    revalidatePath('/cart')
     return { message: "Product added to cart." };
   } catch (error: any) {
     //if error, send error response
@@ -76,12 +77,12 @@ export async function getCart(userId: Schema.Types.ObjectId) {
       //"_id title price image id"
       
       //if cart exists, send cart
+      if (cart) {
+        const response = {
+          message: "Cart found.",
+          cart: cart,
+        };
       revalidatePath('/cart')
-    if (cart) {
-      const response = {
-        message: "Cart found.",
-        cart: cart,
-      };
       return JSON.parse(JSON.stringify(response));
     } else {
       //if cart does not exist, send error response
@@ -143,6 +144,7 @@ export async function removeFromCart(
     }
 
     //send response
+    revalidatePath('/cart')
     return { message: "Product removed from cart." };
   } catch (error: any) {
     //if error, send error response
@@ -192,6 +194,7 @@ export async function removeProductFromCart(
     }
 
     //send response
+    revalidatePath('/cart')
     return { message: "Product removed from cart." };
   } catch (error: any) {
     //if error, send error response

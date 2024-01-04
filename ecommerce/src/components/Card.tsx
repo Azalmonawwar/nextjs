@@ -7,6 +7,7 @@ type Card = {
     src: string;
 }
 const Card = ({ href, title, src }: Card) => {
+    title = title.length > 10 ? title.slice(0, 10) + '...' : title
     return (
         <div className="card-container relative overflow-hidden border-[1px] border-gray-300 md:w-[33%] flex items-center justify-center w-full">
             <Image src={`${src}`} alt={src} height={300} width={300} />

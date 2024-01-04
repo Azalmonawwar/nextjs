@@ -52,14 +52,7 @@ const Cart = () => {
                             }) :
                                 <h1 className="text-2xl font-bold ">Cart is Empty</h1>
                         }
-                        {
-                            auth.user.fullName ===undefined &&
-                            <div className="flex gap-4 items-center">
-                                <h1 className="text-2xl font-bold">Login to see your cart</h1>
-                                <Link className="px-2 py-2 md:px-4 md:py-2 md:text-base text-sm  bg-black text-white rounded-md " href={"/login"}>Login</Link>
-                            </div>
-
-                        }
+                       
                     </div>
                     {
                         data?.length >= 1 &&

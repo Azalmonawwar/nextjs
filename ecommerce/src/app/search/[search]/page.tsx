@@ -22,6 +22,9 @@ const page = async ({ params, searchParams }) => {
     let arr: number[] = []
 
     for (let i = page; i <= page+3; i++) {
+        if (i > NoOfPage) {
+            break
+        }
         arr.push(i)
     }
 
