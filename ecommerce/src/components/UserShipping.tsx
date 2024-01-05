@@ -6,7 +6,7 @@ const UserShipping = ({data}:any) => {
         {
             data?.map((item:any) => {
                 <div className="border-[1px] border-gray-300 p-5 ">
-                    {item?.name}hellow
+                    {item?.name} hellow
                 </div>
             })
         }

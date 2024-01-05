@@ -175,15 +175,17 @@ export async function getDataBySearchQuery(query: string,page: number,limit: num
         skipStage,
         limitStage,
     ]);
-
+    
+    
     const response = JSON.parse(JSON.stringify(results));
     return response;
 
   } catch (error) {
-    return {
+    const response = {
       statusCode: 500,
       body: JSON.stringify(error),
     };
+    return JSON.parse(JSON.stringify(response));
   }
 }
 

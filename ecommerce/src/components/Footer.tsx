@@ -51,7 +51,7 @@ const Footer = () => {
             <div className='w-full flex justify-around items-center bg-gray-300 text-gray-900  text-center'>
                 <div>
                     <h4 className='sm:text-sm md:text-base text-xs'>
-                        &#169;2023 - Lyntra By Azal Monawwar
+                        &#169;2023 - FabricFantasy By Azal Monawwar
                     </h4>
                 </div>
                 <div className='flex items-center justify-center gap-4'>

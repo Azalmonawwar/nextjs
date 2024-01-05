@@ -18,7 +18,7 @@ const page = async ({ params, searchParams }) => {
     const { search } = params as Search
     const length = await getLengthOfSearchQuery(search)
     const data = await getDataBySearchQuery(search, page, 20)
-    const NoOfPage = Math.ceil(length[0].count / 20)
+    const NoOfPage = Math.ceil(length[0]?.count / 20)
     let arr: number[] = []
 
     for (let i = page; i <= page+3; i++) {
@@ -34,11 +34,11 @@ const page = async ({ params, searchParams }) => {
                 <h3 className={`text-2xl font-semibold mb-10 text-center md:text-left ${rubik.className}`}>Showing results of {search} </h3>
                 <div className='grid md:gap-4 grid-cols-2 md:grid-cols-3 lg:grid-cols-4'>
                     {
-                        data?.map((product: any) => {
+                        data.length !== 0 ? data?.map((product: any) => {
                             return (
                                 <Product key={product.id} product={product} />
                             )
-                        })
+                        }): <h3 className='text-2xl font-semibold mb-10 text-center md:text-left'>No results found</h3>
                     }
                 </div>
                 <div className='flex justify-center mt-10'>

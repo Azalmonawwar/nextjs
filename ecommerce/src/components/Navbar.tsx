@@ -87,7 +87,7 @@ const Navbar = () => {
                 {/* Desktop nav */}
 
                 <div className='md:flex hidden'>
-                    <h1 className={`font-bold text-xl mr-5 ${robotoc.className} uppercase`} ><Link href={'/'} >Lyntra</Link></h1>
+                    <h1 className={`font-bold text-xl mr-5 ${robotoc.className} uppercase`} ><Link href={'/'} >FabricFantasy</Link></h1>
                     <ul className='flex items-center gap-5 font-semibold '>
                         {
                             menuItems.map((item, index) => {
@@ -125,7 +125,7 @@ const Navbar = () => {
                 {/* //mobile nav */}
                 <div className='flex-center gap-4 md:hidden'>
                     <Image src={'/hamburger.png'} width={24} height={24} className={'w-[20%] md:hidden block z-50'} alt={'menu'} onClick={toggleMenu} />
-                    <h1 className={`text-xl font-bold ${robotoc.className} uppercase`}><Link href={'/'}>Lyntra</Link></h1>
+                    <h1 className={`text-xl font-bold ${robotoc.className} uppercase`}><Link href={'/'}>FabricFantasy</Link></h1>
                 </div>
                 {
                 // isInput &&
