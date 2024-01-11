@@ -20,14 +20,14 @@ const page = async ({ params, searchParams }) => {
     const data = await getDataBySearchQuery(search, page, 20)
     const NoOfPage = Math.ceil(length[0]?.count / 20)
     let arr: number[] = []
-
-    for (let i = page; i <= page+3; i++) {
-        if (i > NoOfPage) {
-            break
+    if(NoOfPage){
+        for (let i = page; i <= page+3; i++) {
+            if (i > NoOfPage) {
+                break
+            }
+            arr.push(i)
         }
-        arr.push(i)
     }
-
     return (
         <Wrapper>
             <div className='my-24'>

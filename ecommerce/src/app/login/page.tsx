@@ -8,11 +8,14 @@ import { loginSchema } from '@/formSchema/schema';
 import toast from 'react-hot-toast';
 import { login } from '@/actions/user.action';
 
+
 type Inputs = {
     email: string;
     password: string;
 }
+
 const Login = () => {
+    
     const { register, handleSubmit, formState: { errors } } = useForm<Inputs>({
         resolver: yupResolver(loginSchema),
     })
@@ -38,11 +41,10 @@ const Login = () => {
             return error
         }
     }
-
     return (
         <Wrapper >
             <div className='flex min-h-full flex-col justify-center px-10 py-12 lg:px-8'>
-
+                
 
                 <div className="sm:mx-auto sm:w-full sm:max-w-sm ">
                     <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">Login your account</h2>
