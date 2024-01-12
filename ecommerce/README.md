@@ -24,8 +24,9 @@ Follow these steps to set up the development environment and run the application
 
 1. **Clone the Repository:**
    ```bash
-   git clone https://github.com/your-username/ecommerce-nextjs-mongodb.git
-   cd ecommerce-nextjs-mongodb
+   git clone https://github.com/Azalmonawwar/nextjs.git
+   cd nextjs
+   cd ecommerce
    ```
 
 2. **Install Dependencies:**
