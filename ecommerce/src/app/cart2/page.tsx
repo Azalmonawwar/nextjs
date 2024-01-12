@@ -9,7 +9,7 @@ import {getUser} from '@/actions/user.action'
 
 const Cart = async() => {
     const user = await getUser();
-    const id = user.user._id;
+    const id = user?.user?._id;
     const  data  = await getCart(id);
     const cart = data?.cart?.products;
 
