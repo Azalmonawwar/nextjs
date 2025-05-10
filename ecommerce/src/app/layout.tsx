@@ -11,7 +11,7 @@ import QueryProviders from '@/components/QueryProviders'
 const poppins = Poppins({ weight: ['200', '300', '400', '500', '600', '700'], subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Lyntra',
+  title: 'FabricFantasy',
   description: 'Discover the epitome of style at Lyntra, your go-to cloth store for fashion that speaks volumes. Explore a curated collection of trendy and timeless apparel, where quality meets comfort. Elevate your wardrobe with the latest in vogue, sourced with passion and tailored for individuality. Unleash your fashionista spirit at Lyntra – where every thread tells a unique story. Shop now and redefine your style journey with us!',
 }
 
